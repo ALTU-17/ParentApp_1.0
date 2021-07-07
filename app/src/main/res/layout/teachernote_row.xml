@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/note_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/cardshape"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/item"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/teacher" />
+
+            <TextView
+                android:id="@+id/note_teachername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/item"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/item"
+                android:layout_toRightOf="@+id/item"
+                android:gravity="center_vertical"
+                android:text="Teacher Name"
+                android:textColor="@color/new2"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/item"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@+id/item"
+                android:layout_toRightOf="@+id/item"
+                android:background="@color/shimmer"
+                android:text="Teacher Name"
+                android:textColor="@color/new2"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:fontFamily="@font/opensans_semibold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:layout_toStartOf="@+id/note_date"
+                android:layout_toLeftOf="@+id/note_date"
+                android:text="Date: "
+                android:textColor="@color/black"
+
+                android:textSize="14sp"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <TextView
+                android:id="@+id/note_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-1dp"
+                android:layout_marginBottom="7dp"
+                android:background="@color/shimmer"
+                android:text="dd-MM-yyyy"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:fontFamily="@font/spensans_regular" />
+
+            <View
+                android:id="@+id/lineview"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/item"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/line" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineview"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:text="Note: "
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <TextView
+                android:id="@+id/note_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineview"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_toEndOf="@+id/textView6"
+                android:layout_toRightOf="@+id/textView6"
+                android:background="@color/shimmer"
+                android:ellipsize="end"
+                android:maxLength="100"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:fontFamily="@font/spensans_regular" />
+
+        </RelativeLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</RelativeLayout>

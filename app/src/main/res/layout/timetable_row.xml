@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="1dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginStart="10dp">
+
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="0dp"
+                android:gravity="center"
+                android:background="@drawable/cardshape"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="0dp">
+                <TextView
+                    android:id="@+id/period_no"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/opensans_semibold"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+                <TextView
+                    app:fontFamily="@font/spensans_regular"
+
+                    android:textColor="@color/black"
+                    android:id="@+id/class_time"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/cardshape"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="0dp">
+                <TextView
+                    app:fontFamily="@font/opensans_semibold"
+
+                    android:id="@+id/sub_monday"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+                <TextView
+                    app:fontFamily="@font/spensans_regular"
+
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:id="@+id/class_timeM"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@drawable/cardshape">
+                <TextView
+                    app:fontFamily="@font/opensans_semibold"
+
+                    android:id="@+id/sub_tuesday"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+                <TextView
+                    app:fontFamily="@font/spensans_regular"
+                    android:visibility="gone"
+
+                    android:textColor="@color/black"
+                    android:id="@+id/class_timeT"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/cardshape"
+                android:layout_marginEnd="0dp">
+                <TextView
+                    app:fontFamily="@font/opensans_semibold"
+
+                    android:id="@+id/sub_wednesday"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+                <TextView
+                    app:fontFamily="@font/spensans_regular"
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:id="@+id/class_timeW"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/cardshape"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="0dp">
+                <TextView
+                    app:fontFamily="@font/opensans_semibold"
+
+                    android:id="@+id/sub_thursday"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+                <TextView
+                    app:fontFamily="@font/spensans_regular"
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:id="@+id/class_timeTh"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="0dp"
+                android:gravity="center"
+                android:background="@drawable/cardshape"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="0dp">
+                <TextView
+                    app:fontFamily="@font/opensans_semibold"
+                    android:id="@+id/sub_friday"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+                <TextView
+                    app:fontFamily="@font/spensans_regular"
+                    android:textColor="@color/black"
+                    android:id="@+id/class_timeF"
+                    android:visibility="gone"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="0dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/cardshape"
+                android:layout_marginStart="1dp"
+                >
+                <TextView
+                    app:fontFamily="@font/opensans_semibold"
+
+                    android:id="@+id/sub_saturday"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="1dp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="0dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="0dp" />
+
+                <TextView
+                    app:fontFamily="@font/spensans_regular"
+                    android:id="@+id/sub_saturday_period"
+                    android:layout_width="105dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center"
+                    android:paddingStart="3dp"
+                    android:textColor="@color/black"
+                    android:paddingEnd="0dp" />
+            </LinearLayout>
+
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Data Available"
+        android:gravity="center"
+        app:fontFamily="@font/spensans_regular"
+        android:textColor="@color/md_white_1000"
+        android:visibility="gone"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
+
+
+</RelativeLayout>

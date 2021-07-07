@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    tools:context = ".Payment.PaymentWebview"
+    android:background="@drawable/mainbckgrnd">
+    <include
+        android:id="@+id/icd_tb_paymentwebview"
+        layout="@layout/header_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="60dp">
+
+
+
+    <WebView
+        android:id = "@+id/paymentWebview"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:layout_above = "@+id/footer" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id = "@+id/footer"
+        android:layout_width = "match_parent"
+        android:layout_height = "60dp"
+        android:visibility="gone"
+        android:layout_alignParentBottom = "true"
+        android:background = "@color/extraColor"
+        android:gravity = "center"
+        android:orientation = "horizontal">
+
+        <Button
+            android:id = "@+id/btn_Back"
+            android:layout_width = "150dp"
+            android:layout_height = "40dp"
+            android:layout_gravity = "center"
+            android:layout_marginStart = "20dp"
+            android:layout_marginEnd = "20dp"
+            android:background = "@drawable/button_new5"
+            android:gravity = "center"
+            android:text = "@string/back"
+            android:textColor = "#000000" />
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id = "@+id/btn_Receipt"
+            android:layout_width = "150dp"
+            android:layout_height = "40dp"
+            android:layout_gravity = "center"
+            android:layout_marginStart = "20dp"
+            android:layout_marginEnd = "20dp"
+
+            android:gravity = "center"
+            android:text = "@string/receipt"
+            android:textColor = "#000000" />
+
+    </LinearLayout>
+    <include
+        android:id="@+id/bb_paymentwebview"
+        layout="@layout/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

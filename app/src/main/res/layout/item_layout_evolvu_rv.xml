@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    app:cardCornerRadius="8dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_marginLeft="2dp"
+        android:padding="5dp"
+        android:id="@+id/stud_name"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id = "@+id/act_subEvolvu"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:text = "Evolvu Update Title"
+            android:textColor = "@color/new2"
+            android:textSize="16sp"
+            android:textStyle = "bold"
+            android:maxLength="100"
+            android:maxLines="2"
+            app:fontFamily = "@font/opensans_semibold" />
+
+        <TextView
+            android:id="@+id/act_Evolvudetails"
+            android:text="Testing for Evolvu Update Card"
+            android:layout_below="@+id/act_subEvolvu"
+            app:fontFamily="@font/opensans_semibold"
+            android:textSize="14sp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/secondary_text"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

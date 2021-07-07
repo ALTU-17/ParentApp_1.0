@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NewLoginPage"
+    android:background="@drawable/mainbckgrnd">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@android:color/white"
+        />
+
+
+    <RelativeLayout
+        android:layout_above="@+id/wp"
+        android:id="@+id/logo1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/evolvutransparent" />
+
+        <TextView
+            android:layout_below="@id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/starttext"
+            android:text="@string/main_screen_text"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:padding="1pt"
+            android:fontFamily="@font/spensans_regular"
+            android:visibility="visible"
+            android:layout_marginBottom="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/logonew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/starttext"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/goingtoschool" />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/wp"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_white_below">
+
+        <EditText
+            android:layout_margin="50dp"
+            android:id="@+id/et_uid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_person_outline_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="Username"
+            android:fontFamily="@font/spensans_regular"
+            android:inputType="text"
+            app:backgroundTint="@color/black"
+            android:textColor="#000000"
+            android:padding="3pt"
+            android:textColorHint="#000000"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/nextlay"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:padding="1pt"
+            android:id="@+id/bottomlayout"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/chemis"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/chemistry"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/bt_Next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/nextimg" />
+
+            <ImageView
+                android:id="@+id/cup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:background="@drawable/cup"
+                android:padding="5dp" />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/bottomlayout"
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/v1_0_5"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:fontFamily="@font/spensans_regular"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

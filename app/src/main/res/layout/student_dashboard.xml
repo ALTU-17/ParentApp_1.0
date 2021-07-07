@@ -1,0 +1,1155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/android_gridview_example"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbckgrnd"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="70dp"
+        android:visibility="visible"
+        app:elevation="4dp">
+
+        <RelativeLayout
+            android:id="@+id/newtool"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:minHeight="65dp">
+
+            <TextView
+                android:id="@+id/tv_studentDashboardHediing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/drawer"
+                android:fontFamily="@font/spensans_regular"
+                android:text="@string/evolvu_smart_parent_app"
+                android:textColor="@color/md_white_1000"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+
+            <ImageButton
+                android:id="@+id/drawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/hamburger" />
+
+            <ImageButton
+                android:id="@+id/notify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/notify"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+    <!--   <include
+           android:id="@+id/tb_main1"
+           layout="@layout/header_topbar"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="15dp" />-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_stud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tb_main"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:padding="3dp"
+        app:cardCornerRadius="8dp">
+
+        <RelativeLayout
+            android:id="@+id/stud_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/tlogo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+
+            <RelativeLayout
+                android:id="@+id/Relative1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tlogo"
+                android:layout_toEndOf="@+id/tlogo">
+
+                <LinearLayout
+                    android:id="@+id/one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/student_Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:text="Student"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="15sp"
+                        app:fontFamily="@font/opensans_semibold" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/one"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvRoll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Roll No : "
+                        android:textColor="@color/accent"
+                        android:textSize="13sp"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:id="@+id/tv_roll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="@color/accent"
+                        android:textSize="13sp"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/verticalline"
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/tlogo"
+                android:layout_alignBottom="@id/tlogo"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="2dp"
+                android:layout_toEndOf="@+id/Relative1"
+                android:background="@drawable/line" />
+
+            <TextView
+                android:id="@+id/tv_cs"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tlogo"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/verticalline"
+                android:gravity="center"
+                android:text="Class"
+                android:textColor="@color/secondary_text"
+                android:textSize="15sp"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <TextView
+                android:id="@+id/tv_cs1"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_cs"
+                android:layout_toEndOf="@+id/verticalline"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center"
+                android:text="CLass"
+                android:textColor="@color/accent"
+                android:textSize="12sp"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <View
+                android:id="@+id/verticalline2"
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/tlogo"
+                android:layout_alignBottom="@id/tlogo"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_toEndOf="@+id/tv_cs1"
+                android:background="@drawable/line" />
+
+
+            <TextView
+                android:id="@+id/tv_ct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tlogo"
+                android:layout_toEndOf="@+id/verticalline2"
+                android:gravity="center"
+                android:text="Teacher"
+                android:textColor="@color/secondary_text"
+                android:textSize="16sp"
+                app:fontFamily="@font/opensans_semibold" />
+
+
+            <TextView
+                android:id="@+id/tv_ct1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ct"
+                android:layout_toEndOf="@+id/verticalline2"
+                android:gravity="center"
+                android:text="Teacher Name"
+                android:textColor="@color/accent"
+                android:textSize="12sp"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ct1"
+                android:layout_margin="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center"
+                    android:text="Progress"
+                    app:fontFamily="@font/opensans_semibold" />
+
+                <ProgressBar
+                    android:id="@+id/myprogressbar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tvProgress"
+                    android:layout_margin="5dp"
+                    android:layout_toEndOf="@+id/tvProgress"
+                    android:max="100"
+                    android:padding="5dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tvProgressPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="78%"
+
+                    app:fontFamily="@font/opensans_semibold" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/sa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card_stud"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/sa" />
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sa"
+        android:layout_marginTop="10pt"
+        android:layout_marginBottom="80dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:weightSum="4">
+
+                <!--1st Row-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!--STUDENT PROFILE-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/studCardView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5pt">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+                                android:id="@+id/cardstud"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@color/transparent"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:scaleX="1.5"
+                                android:scaleY="1.8" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/cardstud"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Student Profile"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!--NOTE-->
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/noteCardView"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="5pt">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/card"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+
+                                <ImageView
+                                    android:id="@+id/img1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="7dp"
+                                    android:background="@drawable/teacher"
+                                    android:padding="10dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Teacher Note"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <com.nex3z.notificationbadge.NotificationBadge
+                                    android:id="@+id/noti_badge_teachernotes"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="-10dp"
+                                    app:animationEnabled="true"
+                                    app:badgeBackground="@drawable/notification_badge"
+                                    app:badgeTextColor="@color/md_white_1000"
+
+                                    app:maxTextLength="2" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                    <!--HOMEWORK-->
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/homeworkcardView"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="5pt">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/card"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+
+                                <ImageView
+                                    android:id="@+id/img2"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="7dp"
+                                    android:background="@drawable/books"
+                                    android:padding="10dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img2"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Homework"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <com.nex3z.notificationbadge.NotificationBadge
+                                    android:id="@+id/noti_badge_homeworks"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="-10dp"
+                                    app:animationEnabled="true"
+                                    app:badgeBackground="@drawable/notification_badge"
+                                    app:badgeTextColor="@color/md_white_1000"
+
+                                    app:maxTextLength="2" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!--2nd Row-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!--NOTICE/SMS-->
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/ParentNoticeView"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="5pt">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/card"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+
+                                >
+
+                                <ImageView
+                                    android:id="@+id/img3"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="7dp"
+                                    android:background="@drawable/chat"
+                                    android:padding="10dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img3"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:text="Notice/SMS"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <com.nex3z.notificationbadge.NotificationBadge
+                                    android:id="@+id/noti_badge_noticesms"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="-10dp"
+                                    app:animationEnabled="true"
+                                    app:badgeBackground="@drawable/notification_badge"
+                                    app:badgeTextColor="@color/md_white_1000"
+                                    app:maxTextLength="2" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                    </RelativeLayout>
+
+                    <!--REMARK-->
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/remarkCardView"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="5pt">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/card"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+
+                                <ImageView
+                                    android:id="@+id/img4"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="7dp"
+                                    android:background="@drawable/studying"
+                                    android:padding="10dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/img4"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Remark"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <com.nex3z.notificationbadge.NotificationBadge
+                                    android:id="@+id/noti_badge_remarks"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="-10dp"
+                                    app:animationEnabled="true"
+                                    app:badgeBackground="@drawable/notification_badge"
+                                    app:badgeTextColor="@color/md_white_1000"
+                                    app:maxTextLength="2" />
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+
+                    <!--TIMETABLE-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/TimeTable"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5pt">
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+                                android:id="@+id/img5"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/calendar"
+                                android:padding="10dp"
+
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img5"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Timetable"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!--3rd Row-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!--ATTENDANCE-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/StudentAttendance"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5pt">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/img6"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/notepad"
+                                android:padding="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img6"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Attendance"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!--ONLINE EXAM-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/online_exam"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:visibility="visible"
+                        app:cardCornerRadius="5pt">
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/img8"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/online_exam"
+                                android:contentDescription="@string/app_name"
+                                android:padding="2dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img8"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Online Exam"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!--RESULT-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/StudentResult"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:visibility="visible"
+                        app:cardCornerRadius="5pt">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/img7"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/chat"
+                                android:padding="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img7"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Result"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+                <!--4TH ROW EXTRA-->
+                <LinearLayout
+                    android:id="@+id/ll_Cirtificate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!--Cirtificate-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/Cirtificate"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5pt">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/img66"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/ic_certificate"
+                                android:padding="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img66"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Certificate"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!--Cirtificate-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_healthActivity"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="5pt">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/img77"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/ic_health_activity"
+                                android:padding="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img77"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Health N Activity Record"
+                                android:textAlignment="center"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <!--Cirtificate-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_BonafideCertificate"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        app:cardCornerRadius="5pt">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/img77"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/ic_health_activity"
+                                android:padding="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/img77"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Bonafide Certificate"
+                                android:textAlignment="center"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!--5TH ROW EXTRA-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/TeacherProfileCardView"
+                        android:layout_width="125dp"
+                        android:layout_height="115dp"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="5pt">
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+
+                                android:layout_width="60dp"
+
+                                android:layout_height="60dp"
+                                android:layout_marginTop="7dp"
+
+                                android:background="@drawable/professor"
+
+
+                                android:padding="10dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="10dp"
+                                android:text="Teacher
+Profile"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/noticeCardview"
+                        android:layout_width="125dp"
+                        android:layout_height="115dp"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="5pt">
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+
+
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/card"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+
+                                android:layout_width="60dp"
+
+                                android:layout_height="60dp"
+
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/chat"
+
+                                android:padding="10dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Notice/SMS
+Parents"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <!--5TH ROW EXTRA-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/dailyAttendanceCardView1"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="5pt"
+
+                        >
+
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+
+
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/card"
+                            android:gravity="center"
+
+                            android:orientation="vertical">
+
+
+                            <ImageView
+
+                                android:layout_width="60dp"
+
+                                android:layout_height="60dp"
+
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/calendar"
+
+                                android:padding="10dp"
+
+                                />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="10dp"
+                                android:text="Timetable"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/studinfoCardview"
+                        android:layout_width="130dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="10dp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="5pt">
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+
+                            android:orientation="vertical">
+
+
+                            <ImageView
+
+                                android:layout_width="80dp"
+
+                                android:layout_height="80dp"
+
+                                android:layout_marginTop="8dp"
+                                android:padding="10dp"
+
+                                android:src="@drawable/teacher" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="7dp"
+                                android:gravity="center"
+                                android:text="Student
+Information"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <View
+
+                                android:layout_width="match_parent"
+
+                                android:layout_height="1dp"
+
+                                android:layout_margin="10dp"
+                                android:visibility="gone" />
+
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <!--todo Bottom Bar-->
+
+    <include
+        android:id="@+id/icd_bottom"
+        layout="@layout/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp" />
+
+
+    <GridView
+        android:id="@+id/grid_view_image_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sa"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:columnWidth="110dp"
+        android:gravity="center"
+        android:numColumns="auto_fit"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

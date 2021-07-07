@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView3"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/mainbckgrnd">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/icd_tb_homeworkdetails"
+            layout="@layout/header_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="60dp"
+            android:fillViewport="true"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/cardshape"
+                android:orientation="vertical"
+                app:elevation="10dp">
+
+
+                <!--Class-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Class :"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+
+                    <TextView
+                        android:id="@+id/sclass"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <!--Subject-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Subject :"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+
+                    <TextView
+                        android:id="@+id/subject"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <!--Assigned Date-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Assigned Date :"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+
+                    <TextView
+                        android:id="@+id/sdate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <!--Submission Date-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Submission Date:"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:id="@+id/edate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <!--Homework-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Homework : "
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <!--Homework Status-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Homework Status : "
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <!--Teacher Comments-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Teacher's Comment : "
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+
+                    <TextView
+                        android:id="@+id/tcomment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Loading..."
+                        android:textSize="15sp"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <!--Parent Comments-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Parent's Comment"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                </LinearLayout>
+
+                <!--Attachments-->
+                <LinearLayout
+                    android:id="@+id/homeworkDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+
+                    <TextView
+                        android:id="@+id/tv_image"
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Attachment"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:id="@+id/tv_image_colon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text=":" />
+
+                    <ListView
+                        android:id="@+id/homeworkattachments_list"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5pt"
+                        android:layout_marginEnd="5pt"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/showAttachmentsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5pt"
+                        android:layout_marginEnd="5pt"
+                        android:orientation="vertical" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/pcomment"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/cardshape_parentcomment"
+                    android:gravity="top"
+                    android:hint="Type here..."
+                    android:inputType="textMultiLine"
+                    android:padding="7dp"
+                    android:scrollbars="vertical"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/spensans_regular" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center" />
+
+                <Button
+                    android:id="@+id/hupdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_new1"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:text="Update"
+                    android:textColor="#ffffff" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/bb_homeworkdetails"
+            layout="@layout/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</LinearLayout>

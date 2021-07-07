@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/mainbckgrnd">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/instituteName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_semibold"
+            android:gravity="center"
+            android:text="@string/evolvu_parent_application"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/acd_yr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/instituteName"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/opensans_semibold"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvfogotpwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/acd_yr"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/spensans_regular"
+            android:gravity="center"
+            android:text="@string/forgot_password1"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
+
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvfogotpwd"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/spensans_regular"
+            android:gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_forUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textClock"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/spensans_regular"
+            android:text="@string/please_enter_your_user_id"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_userId"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_forUsername"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/cardshape"
+            android:hint="@string/enter_userid"
+            android:inputType="text"
+            android:textSize="16sp"
+            tools:ignore="Autofill" />
+
+        <TextView
+            android:id="@+id/tv_formothername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_userId"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/spensans_regular"
+            android:text="@string/mother_s_name"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_motherName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_formothername"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/cardshape"
+            android:hint="@string/enter_mother_s_name"
+            android:inputType="text"
+            android:textSize="16sp"
+            tools:ignore="Autofill" />
+
+        <TextView
+            android:id="@+id/tv_forteachername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_motherName"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/spensans_regular"
+            android:text="@string/your_child_s_date_of_birth"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_DOB"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_forteachername"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/cardshape"
+            android:drawableEnd="@drawable/calendar_date"
+            android:hint="@string/select_date_of_birth"
+            android:textSize="16sp"
+            tools:ignore="Autofill,TextFields" />
+
+
+        <LinearLayout
+            android:id="@+id/btnsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_DOB"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/bt_Reset"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_new1"
+                android:elevation="5dp"
+                android:padding="5dp"
+                android:text="Reset"
+                android:textColor="@color/white" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="0dp" />
+
+            <Button
+                android:id="@+id/bt_LoginPage"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_new5"
+                android:elevation="5dp"
+                android:padding="5dp"
+                android:text="login"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/recieveNewPwd"
+        android:gravity="center_horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="If you do not remember answers to these questions then please enter your userid and click on this link to"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/recieveNewPwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:gravity="center_horizontal"
+        android:paddingBottom="8dp"
+        android:text="receive a new password "
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#e1e3e9">
+
+        <TextView
+            android:id="@+id/ftxt2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="Aceventura Services"
+            android:textColor="#3c8dbc"
+            android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>
+
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "65dp"
+    android:layout_height = "wrap_content"
+    android:orientation = "vertical"
+    android:layout_marginEnd = "10dp"
+    android:id="@+id/qp_download">
+
+    <ImageView
+        android:id = "@+id/iv_qp"
+        android:layout_width = "50dp"
+        android:layout_height = "50dp"
+        android:layout_margin = "5dp"
+        android:background = "@drawable/cardshape"
+        android:contentDescription = "@string/app_name"
+        android:gravity = "center" />
+
+    <TextView
+        android:gravity = "center"
+        android:id = "@+id/tv_qpName"
+        android:layout_width = "60dp"
+        android:layout_height = "wrap_content"
+        android:layout_margin = "5dp"
+        android:text = "Paper_name" />
+
+</LinearLayout>

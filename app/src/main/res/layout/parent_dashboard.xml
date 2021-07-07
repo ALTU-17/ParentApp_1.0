@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbckgrnd"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_main"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="70dp"
+        android:visibility="gone"
+        app:elevation="4dp" />
+
+    <!--    <include
+            android:id="@+id/icd_parentDashboard"
+            layout="@layout/header_topbar"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content" />-->
+
+
+    <LinearLayout
+        android:id="@+id/ll_term_conditions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:elevation="1dp"
+        android:visibility="gone">
+
+        <include
+            android:id="@+id/term_conditions"
+            layout="@layout/terms_conditions_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/newtool"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="25dp"
+        android:minHeight="100dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/drawer"
+            android:gravity="center"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spensans_regular"
+                android:text="EvolvU Smart Parent App"
+                android:textColor="@color/md_white_1000"
+
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_academic_yr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spensans_regular"
+                android:text="academic_yr"
+                android:textColor="@color/md_white_1000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+        <ImageButton
+            android:id="@+id/drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/hamburger" />
+
+        <ImageButton
+            android:id="@+id/notify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/notify"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rel_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <!--birthday-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/birthdaycard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="2dp"
+            app:cardCornerRadius="8dp"
+            app:elevation="10dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/bdae_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/birthday_cake" />
+
+                <TextView
+                    android:id="@+id/bdae_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/bdae_img"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:gravity="center_horizontal"
+                    android:text="@string/happy_birthday"
+                    android:textColor="@color/new2"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/birthdaydayname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/bdae_img"
+                    android:layout_toEndOf="@+id/bdae_img"
+                    android:fontFamily="@font/spensans_regular"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/new2"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!--title text-->
+        <ImageView
+            android:id="@+id/mychild"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/birthdaycard"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/mychild" />
+
+        <ProgressBar
+            android:id="@+id/pb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mychild"
+            android:layout_centerHorizontal="true" />
+
+
+        <!--Child List RV-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pb"
+            android:layout_margin="10dp" />
+
+        <!--no data-->
+        <RelativeLayout
+            android:id="@+id/student_not_available"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@+id/rcview"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/cardshape"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/item"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/error"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/note_teachername"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/item"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/item"
+                android:gravity="center"
+                android:text="@string/student_data_not_found_in_current_academic_year"
+                android:textColor="@color/Red"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/item"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@+id/item"
+                android:background="@color/shimmer"
+                android:text="Teacher Name"
+                android:textColor="@color/new2"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:fontFamily="@font/opensans_semibold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:layout_toStartOf="@+id/note_date"
+                android:text="@string/date1"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:fontFamily="@font/opensans_semibold" />
+
+            <TextView
+                android:id="@+id/note_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="-1dp"
+                android:layout_marginBottom="7dp"
+                android:background="@color/shimmer"
+                android:text="@string/dd_mm_yyyy"
+                android:textSize="14sp"
+                android:visibility="invisible"
+                app:fontFamily="@font/spensans_regular" />
+
+
+            <TextView
+                android:id="@+id/note_subject"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_below="@+id/lineview"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_toEndOf="@+id/textView6"
+                android:background="@color/shimmer"
+                android:ellipsize="end"
+                android:maxLength="100"
+                android:maxLines="2"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                app:fontFamily="@font/spensans_regular" />
+
+        </RelativeLayout>
+
+
+        <!--Scroll for three cardlist vertically-->
+        <ScrollView
+            android:id="@+id/dd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/s"
+            android:layout_below="@+id/student_not_available"
+            android:layout_margin="8dp"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <!--NEWS-->
+                <TextView
+                    android:id="@+id/newsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="-9.5dp"
+                    android:background="@drawable/cardshapelabel"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="News"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/newsRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newsLabel"
+                    android:layout_marginBottom="10dp" />
+
+                <!--Important Links-->
+                <TextView
+                    android:id="@+id/impLinksLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newsRV"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="-2.5dp"
+                    android:background="@drawable/cardshapelabel"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="Important Links"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/impRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/impLinksLabel"
+                    android:layout_marginBottom="10dp" />
+
+                <!--EvolvuUpdate-->
+                <TextView
+                    android:id="@+id/evolvuUpdateLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/impRV"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="-9.5dp"
+                    android:background="@drawable/cardshapelabel"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="Evolvu Updates"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/evolvuRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/evolvuUpdateLabel"
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/s"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#5F97D0"
+            android:orientation="vertical">
+
+            <!--  <nl.joery.animatedbottombar.AnimatedBottomBar
+                  android:id="@+id/bottom_bar"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:abb_indicatorHeight="4dp"
+                  app:abb_indicatorMargin="16dp"
+                  app:abb_selectedIndex="1"
+                  app:abb_selectedTabType="text"
+                  app:abb_tabs="@menu/tabsbottom"
+                  app:abb_textStyle="bold" />-->
+
+            <!--todo Bottom Bar-->
+            <!-- This could be your fragment container, or something -->
+            <!-- <FrameLayout
+                 android:id="@+id/contentContainer"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_above="@+id/bottomBar" />
+ -->
+            <!--  <com.roughike.bottombar.BottomBar
+                  android:id="@+id/bottomBar"
+                  android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:layout_alignParentBottom="true"
+                  android:background="#5F97D0"
+                  app:bb_activeTabColor="#A44B75"
+
+                  app:bb_tabXmlResource="@xml/bottombar_tabs" />
+  -->
+            <include
+                android:id="@+id/icd_bottom"
+                layout="@layout/bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+            <!--       <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center_horizontal"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginRight="10dp"
+                       android:text="For app support email to"
+                       android:textColor="#ffffff"
+                       android:textSize="13sp"
+                       android:visibility="gone" />-->
+
+            <!--  <TextView
+                  android:id="@+id/email"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginRight="10dp"
+                  android:layout_marginBottom="2dp"
+                  android:autoLink="email"
+                  android:text="aceventuraservices@gmail.com "
+                  android:textColor="#ffffff"
+                  android:textColorLink="@color/white"
+                  android:textSize="10sp" />-->
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+
+        android:visibility="invisible" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center" />
+
+
+</LinearLayout>
+
+
+    <!--98677 17436-->

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@drawable/mainbckgrnd"
+    tools:context="in.aceventura.evolvuschool.ClassTimetable">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TableRow>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1dp"
+                    android:gravity="center"
+                    android:text="Subject"
+                    android:textSize="17sp"
+                    android:textColor="#000"                            android:textStyle="bold"
+                    android:layout_marginEnd="1dp" />
+
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:text="Mark Heading"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="1dp" />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/opensans_semibold"
+                    android:paddingBottom="13dp"
+                    android:paddingTop="13dp"
+                    android:text="Marks obtained"
+                    android:textColor="#000"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="1dp" />
+
+            </TableRow>
+
+
+        </TableLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="1dp"
+        android:id="@+id/rv_records"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>
+
+

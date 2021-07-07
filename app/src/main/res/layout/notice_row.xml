@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+<!--Notice View-->
+    <RelativeLayout
+        app:elevation="10dp"
+        android:id="@+id/card1"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/cardshape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/item"
+            android:src="@drawable/chat"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp"
+            app:elevation="10dp"/>
+
+        <RelativeLayout
+            android:id="@+id/rel3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/item"
+            android:layout_alignTop="@+id/item"
+            android:layout_toEndOf="@+id/item">
+            <TextView
+                android:id="@+id/notice_type"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="SMS"
+                app:fontFamily="@font/opensans_semibold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+
+            <TextView
+                android:textStyle="bold"
+                android:text="Created By :"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:layout_below="@+id/notice_type"
+                android:id="@+id/tvcreate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+/>
+
+            <TextView
+                android:text="Principal"
+                android:textSize="12sp"
+                android:layout_below="@+id/notice_type"
+                android:layout_toRightOf="@+id/tvcreate"
+                android:textColor="@color/new1"
+                android:id="@+id/created_by"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toEndOf="@+id/tvcreate" />
+            <View
+                android:layout_below="@+id/created_by"
+                android:visibility="visible"
+                android:layout_marginTop="10dp"
+                android:id="@+id/lineview"
+                android:layout_marginBottom="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/line"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/lineview"
+                android:id="@+id/notice_subject"
+                android:layout_width="match_parent"
+                app:fontFamily="@font/spensans_regular"
+                android:layout_height="wrap_content"
+                android:text="Drawing Competition" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <View
+        android:layout_below="@+id/card1"
+        android:visibility="gone"
+        android:id="@+id/line5"
+        android:layout_width="1dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/line"
+        android:layout_marginStart="30dp">
+
+    </View>
+
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="in.aceventura.evolvuschool.teacher.ManageHomework">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/manageHomework"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="1dp"
+            android:background="#6164da"
+            android:text="MANAGE"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:layout_marginEnd="1dp" />
+
+        <Button
+            android:id="@+id/createHomework"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="1dp"
+            android:background="#232699"
+            android:text="CREATE"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:layout_marginStart="1dp" />
+
+    </LinearLayout>
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"></ScrollView>-->
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="2dp"
+                android:id="@+id/t_homework_list" />
+</LinearLayout>
+
+
+
+

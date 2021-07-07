@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/reveal_items"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+
+
+    <ImageButton
+        android:id="@+id/closenav"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/ic_timeline_dot"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_delete1_24dp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/closenav">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/closenav"
+            android:layout_marginStart="-15dp"
+            android:background="@drawable/navbackbox"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/navView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!--row 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <!--My Profile-->
+                    <RelativeLayout
+                        android:id="@+id/lay1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_myprofile"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/parenting"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/imgbtn_myprofile"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/my_profile"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+                    </RelativeLayout>
+
+                    <!--fee payment-->
+                    <RelativeLayout
+                        android:id="@+id/paymentLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_payment"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/payment"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/tv_imgbtn_payment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_payment"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:gravity="center"
+                            android:text="@string/fee_payment"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+                    </RelativeLayout>
+
+                    <!--ID Card Photo-->
+                    <RelativeLayout
+                        android:id="@+id/IDCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_profile_update"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_profile_update"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_profile_update"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:gravity="center"
+                            android:text="@string/id_card_photo"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rv_bonafide"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:orientation="vertical"
+
+
+                        android:visibility="gone">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_rv_bonafide"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_certificate"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_rv_bonafide"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:gravity="center"
+                            android:text="@string/bonafide_requisition"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <!--row 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <!--Change Password-->
+                    <RelativeLayout
+                        android:id="@+id/changePwdMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_changePwd"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/change_password"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_changePwd"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:gravity="center"
+                            android:text="@string/change_password"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+                    </RelativeLayout>
+
+                    <!--Share app-->
+                    <RelativeLayout
+                        android:id="@+id/lay4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_shareapp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/ic_share"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_shareapp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/share_app"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+                    </RelativeLayout>
+
+                    <!--About Us-->
+                    <RelativeLayout
+                        android:id="@+id/lay5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_about_us"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/update"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_about_us"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/about_us"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!--row 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <!--Books-->
+                    <RelativeLayout
+                        android:id="@+id/library"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_books"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/studying"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_books"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/books"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_AcademicYear"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/iv_AcademicYear"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/calendar"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/tv_AcademicYear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:text="@string/change_academic_year"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+
+                    </LinearLayout>
+
+
+                    <!--Logout-->
+                    <RelativeLayout
+                        android:id="@+id/lay6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgbtn_logout"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/logout"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgbtn_logout"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="14dp"
+                            android:text="@string/log_out"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+
+                    </RelativeLayout>
+                    <!--Extra-->
+                    <LinearLayout
+                        android:id="@+id/extra1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/logout"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+
+                    </LinearLayout>
+
+                    <!--Extra-->
+                    <LinearLayout
+                        android:id="@+id/extra2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/logout"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/secondary_text"
+                            app:fontFamily="@font/spensans_regular" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

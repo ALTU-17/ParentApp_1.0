@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content">
+
+        <TextView
+            android:id="@+id/note_file"
+            android:layout_width="match_parent"
+            android:maxLines="4"
+            android:layout_alignParentStart="true"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/spensans_regular"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:layout_toStartOf="@+id/btn_download"
+            android:text="@string/loading"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_download"
+            android:layout_alignParentEnd="true"
+            android:layout_width = "25dp"
+            android:layout_height = "wrap_content"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_file_download"
+            android:contentDescription = "@string/app_name">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_below="@id/note_file"
+            android:id="@+id/tv_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/spensans_regular"
+            android:layout_marginBottom="2dp"
+            android:textSize="12sp"
+            android:textColor="@color/Red"
+            android:text="@string/file_is_not_uploaded_properly"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <!--<View
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_width = "match_parent"
+        android:layout_height = "1dp"
+        android:background = "@drawable/line" />-->
+
+</LinearLayout>

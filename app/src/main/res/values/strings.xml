@@ -1,0 +1,134 @@
+<resources>
+    <string name="app_name">EvolvU Parent App</string>
+    <string name="about_us_details">EvolvU is the most effective way to assist in the progress of your child and connect with school real-time.
+Get all your school updates on EvolvU.We keep making it better for You with additional features in new releases.</string>
+    <string name="objective">We thank you, Parents and school management  for your inputs and support.</string>
+    <string name="address">Ace Ventura Services, A,81, Shreenath Plaza, Dyaneshwar Padukha Chowk, Shivaji Nagar Pune - 411 005, Maharashtra, India</string>
+    <string name="username_text">username</string>
+    <string name="password_text">password</string>
+    <string name="signin_text">signin</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="forusername_text">* Please enter your User ID  :</string>
+    <string name="formothername_text">* Mother\'s maiden</string>
+    <string name="forteachername_text">* Your child\'s Date Of Birth</string>
+    <string name="reset_text">Reset Password</string>
+    <string name="loginpage_text">Login Page</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="house_prompt">Choose a Country</string>
+    <string name="gender_prompt">Select Gender</string>
+    <string name="blood_prompt">Select Blood Group</string>
+    <string name="transport_prompt">Select Transport Mode</string>
+    <string name="fa_icon_areachart">&#xf1fe;</string>
+    <string name="fa_icon_piechart">&#xf200;</string>
+    <string name="fa_icon_linechart">&#xf201;</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="loading">Loading</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="attachment">Attachment</string>
+    <string name="created_by">Created by</string>
+    <string name="subject">Subject:</string>
+    <string name="Arnolds">supportsacs@aceventura.in</string>
+    <string name="SFSNE">supportsfsne@aceventura.in</string>
+    <string name="SFSNW">supportsfsnw@aceventura.in</string>
+    <string name="SJSKW">supportsjskw@aceventura.in</string>
+
+    <string name="school_name">School Name</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="show_password">Show Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="forgot_password1">Forgot password</string>
+
+    <string name="rate_us">Rate Us</string>
+    <string name="send_your_new_feature_request_on">Send your new feature request on</string>
+    <string name="contact_aceventura_in">contact@aceventura.in</string>
+    <string name="email">Email</string>
+    <string name="aceventuraservices_gmail_com">aceventuraservices@gmail.com</string>
+    <string name="follow_us_on">Follow us on</string>
+    <string name="please_select_atleast_one_search_criteria">Please select atleast one search criteria</string>
+    <string name="no_data_available">No Data Available</string>
+    <string name="date">Date :</string>
+    <string name="v1_0_5">v1.0.5</string>
+    <string name="father_name">Father Name</string>
+    <string name="evolvu_is_backed_by_a_marvelous_team_of_expert_designers_developers_architects_and_quality">EvolvU is backed by a marvelous team of expert designers, developers, architects and quality.</string>
+    <string name="evolvu_smart_school_app_for_parents">EvolvU Smart School App for Parents</string>
+    <string name="main_screen_text">Don\'t miss any update from school.  Follow your child\'s activity and   progress with our smart Parent App.</string>
+    <string name="happy_birthday">Happy Birthday!!</string>
+    <string name="evolvu_smart_parent_app">EvolvU Smart Parent App</string>
+    <string name="share_app_link">Download Evolvu: Smart Schooling App https://play.google.com/store/apps/details?id=in.aceventura.evolvuschool</string>
+    <string name="log_out">Log out</string>
+    <string name="share_app">Share App</string>
+    <string name="fee_payment">Fee Payment</string>
+    <string name="about_us">About Us</string>
+    <string name="books">Books</string>
+    <string name="my_profile">My Profile</string>
+    <string name="pwd_string">Password can be 8 to 20 characters long must contain a number and a special character like &amp;!@#$%^*</string>
+    <string name="date1">Date:</string>
+    <string name="dd_mm_yyyy">dd-MM-yyyy</string>
+    <string name="student_data_not_found_in_current_academic_year">Student data not found in current academic year</string>
+    <string name="_09_10_2019">09-10-2019</string>
+    <string name="testing_for_evolvu_news_card">Testing for Evolvu News Card</string>
+    <string name="school_news">School News</string>
+    <string name="id_card_photo">ID Card Photo</string>
+    <string name="change_password">Change Password</string>
+    <string name="receipt">Receipt</string>
+    <string name="back">Back</string>
+    <string name="file_is_not_uploaded_properly">(File is not uploaded properly)</string>
+    <string name="mother_s_name">Please enter your Mother\'s name</string>
+    <string name="enter_mother_s_name">Enter your mother\'s name</string>
+    <string name="your_child_s_date_of_birth">Your Child\'s Date Of Birth</string>
+    <string name="select_date_of_birth">Select date of birth</string>
+    <string name="enter_userid">Enter userId</string>
+    <string name="please_enter_your_user_id">Please enter your user id</string>
+    <string name="evolvu_parent_application">Evolvu Parent Application</string>
+    <string name="update">Update</string>
+    <string name="weight">Weight</string>
+    <string name="conditions">AceVentura Services (hereinafter, \"We,\" \"Us,\" \"Our\") is offering Evolvu School Application program (the \"Program\"), which you agree to use and participate in subject to these Mobile Messaging Terms and Conditions and Privacy Policy (the \"Agreement\"). By opting in, you accept and agree to these terms and conditions, including, without limitation, your agreement to resolve any disputes with us through binding, individual-only arbitration, as detailed in the \"Dispute Resolution\" section below. This Agreement is limited to the Program and is not intended to modify other Terms and Conditions or Privacy Policy that may govern the relationship between you and Us in other contexts.\n \n
+
+User Opt In: The Program allows Users to receive SMS mobile messages by affirmatively opting into the Program, such as through online or application-based enrolment forms. Regardless of the opt-in method you utilized to join or use the Program, you agree that this Agreement applies to your participation in the Program. By participating in the Program, you agree to receive autodialed or prerecorded mobile messages from software application at the phone number associated with your opt-in, and you understand that consent is not required to make any purchase from Us. While you consent to receive messages sent using an autodialer, the foregoing shall not be interpreted to suggest or imply that any or all of Our mobile messages are sent using an  software application.\n \n
+
+User Opt Out: If you do not wish to receive mobile messages or continue participating in the Program or no longer agree to this Agreement, you may remove the application or provide some other phone number to receive the school application messages. You may receive an additional mobile message confirming your decision to opt out. You understand and agree that the foregoing options are the only reasonable methods of opting out. You also understand and agree that any other method of opting out, including, but not limited to, texting words other than those set forth above or verbally requesting one of our employees to remove you from our list, is not a reasonable means of opting out.\n \n
+
+Duty to Notify and Indemnify: If at any time you intend to stop using the mobile telephone number that has been used to subscribe to the Program, including canceling your service plan or selling or transferring the phone number to another party, you agree that you will complete the User Opt Out process set forth above prior to ending your use of the mobile telephone number. You understand and agree that your agreement to do so is a material part of these terms and conditions. You further agree that, if you discontinue the use of your mobile telephone number without notifying Us of such change, you agree that you will be responsible for all costs (including attorneys\' fees) and liabilities incurred by Us, or any party that assists in the delivery of the mobile messages, as a result of claims brought by individual(s) who are later assigned that mobile telephone number. This duty and agreement shall survive any cancellation or termination of your agreement to participate in any of our Programs.\n \n
+
+YOU AGREE THAT YOU SHALL INDEMNIFY, DEFEND, AND HOLD US HARMLESS FROM ANY CLAIM OR LIABILITY RESULTING FROM YOUR FAILURE TO NOTIFY US OF A CHANGE IN THE INFORMATION YOU HAVE PROVIDED, INCLUDING ANY CLAIM OR LIABILITY UNDER THE INDIAN LAW OR ACT.\n \n
+
+Program Description: Without limiting the scope of the Program, users that opt into the Program can expect to receive messages concerning the attendance, remarks, notices, events, general information and invite or to register or to subscribe</string>
+    <string name="bonafide_requisition">Bonafide Requisition</string>
+    <string name="change_academic_year">Change Academic Year</string>
+
+    <string-array name="house_arrays">
+        <item>Emerald</item>
+        <item>Ruby</item>
+        <item>Sapphire</item>
+        <item>Diamond</item>
+    </string-array>
+    <string-array name="gender_arrays">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="blood_arrays">
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+    <string-array name="transport_arrays">
+        <item>School Bus</item>
+        <item>Private Van</item>
+        <item>self</item>
+    </string-array>
+
+</resources>

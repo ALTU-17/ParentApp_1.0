@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginBottom="2pt"
+    >
+
+<TextView
+    android:id="@+id/notice_attachment"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:drawableEnd="@drawable/ic_file_download"
+    android:drawableRight="@drawable/ic_file_download"
+    android:drawablePadding="2dp"
+    android:gravity="center_vertical"
+    app:fontFamily="@font/spensans_regular"
+    android:text="@string/loading" />
+
+<!--ImageView
+    android:id="@+id/download_image"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:src="@drawable/download"
+    /-->
+
+
+<!--ImageView
+    android:id="@+id/download_image"
+    android:layout_width="20dp"
+    android:layout_height="match_parent"
+    android:src="@drawable/download"
+    android:layout_marginStart="10dp"
+    android:layout_marginLeft="50dp" /-->
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_absent_dates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fontFamily="@font/spensans_regular"
+        android:layout_margin="5dp"
+        android:background="@drawable/cardshape"
+        android:textColor="@color/colorSecondText"
+        android:text="dd-MM-yyyy">
+
+    </TextView>
+
+</LinearLayout>

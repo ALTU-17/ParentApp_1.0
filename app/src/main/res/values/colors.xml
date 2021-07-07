@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#3F51B5</color>
+    <color name="colorBackground">#3c8dbc</color>
+    <color name="colorFooter">#e1e3e9</color>
+    <color name="colorText">#ffffff</color>
+    <color name="colorText1">#000</color>
+    <color name="colorText2">#b22222</color>
+    <color name="colorButton">#ffa31a</color>
+    <color name="colorButton1">#ba54f5</color>
+    <color name="colorButton2">#fc59e1</color>
+    <color name="colorButton3">#ff2a62</color>
+    <color name="transparent">#00000000</color>
+    <color name="grey">#ddd</color>
+    <color name="black">#000</color>
+    <color name = "white">#ffffff</color>
+    <color name="colorPrimarytext">#212121</color>
+    <color name="colorSecondText">#999</color>
+    <color name="coloLink">#1ea4f7</color>
+    <drawable name="focused">#ff5500</drawable>
+    <drawable name="selected">#FF00FF</drawable>
+    <color name="primary_material_dark">#32a0bc</color>
+    <color name="accent_material_dark">#32a0bc</color>
+    <color name="primary_dark_material_light">#32a0bc</color>
+
+    <color name="new1">#CB2447</color>
+    <color name="new2">#B73557</color>
+    <color name="shimmer">#999</color>
+    <color name="highlight">#C0C0C0</color>
+    <color name="Red">#ff0000</color>
+    <color name="extraColor">#53A2DE</color>
+    <color name="bottomactivateColor">#A44B75</color>
+
+</resources>

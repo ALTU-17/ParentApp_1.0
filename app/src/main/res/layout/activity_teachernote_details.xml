@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbckgrnd">
+    <include
+        android:id="@+id/icd_tb_teachernotedetails"
+        layout="@layout/header_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fillViewport="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="60dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/cardshape"
+                android:elevation="10dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="85dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:text="Class"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text=":" />
+
+                    <TextView
+                        android:id="@+id/sclass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Loading"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="85dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:text="Subject"
+                        android:textStyle="bold"
+
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text=":" />
+
+                    <TextView
+                        android:id="@+id/subject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"
+
+                        android:text="Loading"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="85dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:text="Date"
+                        android:textStyle="bold"
+
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text=":" />
+
+                    <TextView
+                        android:id="@+id/sdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Loading"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="85dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:text="Description"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text=":" />
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Loading"
+                        app:fontFamily="@font/spensans_regular" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/teachernoteDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tv_image"
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Attachment"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/opensans_semibold" />
+
+                    <TextView
+                        android:id="@+id/tv_image_colon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text=":" />
+
+                    <ListView
+                        android:id="@+id/note_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5pt"
+                        android:layout_marginLeft="10pt"
+                        android:layout_marginEnd="5pt"
+                        android:layout_marginRight="5pt"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/showAttachmentsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5pt"
+                        android:layout_marginLeft="10pt"
+                        android:layout_marginEnd="5pt"
+                        android:layout_marginRight="5pt"
+                        android:orientation="vertical"></LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_new5"
+                    android:text="BACK"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include
+        android:id="@+id/bb_teachernotedetails"
+        layout="@layout/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
