@@ -124,6 +124,7 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
     TextView tv_stream;
     LinearLayout ll_SelectedSubject, ll_Stream;
     SubjectClassAdapter subjectClassAdapter;
+    TextView tv_admission_class;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +139,7 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
         String pid = (SharedPrefManager.getInstance(this).getParentId().toString());
 
         progressBar = findViewById(R.id.progressBar);
+        tv_admission_class = findViewById(R.id.tv_admission_class);
         progressBar.setVisibility(View.GONE);
         mDatabaseHelper = new DatabaseHelper(this);
         name = mDatabaseHelper.getName(1);
@@ -398,7 +400,7 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
 
             }
         });
-
+        admission_class.setEnabled(false);
         sbloodgroup = findViewById(R.id.sbloodgroup);
         ArrayAdapter<String> bgroupAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_spinner_item, bloodGroupName);
@@ -771,6 +773,7 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
         }
 
         et_sclass.setText(sclass);
+        tv_admission_class.setText(sclass);
         et_sdivision.setText(division);
 
         if (rollno.equals("null")) {
@@ -1020,7 +1023,7 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
                 params.put("birth_place", birthPlace.equals("") ? "" : birthPlace);
                 params.put("mother_tongue", motherTongue);
                 params.put("stud_id_no", studentIdNo);
-                params.put("admission_class", admittedInClass);
+                params.put("admission_class", ""+tv_admission_class.getText().toString());
 
 
                 if (name == null || name.equals("")) {
@@ -1030,6 +1033,7 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
                 }
                 params.put("short_name", name);
                 Log.i("STUDENTPROFILE", "getParams: " + params);
+                Log.e("STUDENTPROFILEUPdate", "getParams: " + params);
                 return params;
             }
         };
@@ -1073,11 +1077,11 @@ public class StudentProfile extends AppCompatActivity implements View.OnClickLis
                         Toast.LENGTH_SHORT).show();
                 et_mothertongue.setError("Field cannot be Blank");
                 return;
-            } else if (admission_class.getSelectedItem() == "Select Class") {
+            } /*else if (admission_class.getSelectedItem() == "Select Class") {
                 Toast.makeText(getApplicationContext(), "Select Admitted Class",
                         Toast.LENGTH_SHORT).show();
                 return;
-            }
+            }*/
             if (et_emercontact.getText().toString().length() < 10) {
                 Toast.makeText(getApplicationContext(), "Invalid Contact No", Toast.LENGTH_SHORT).show();
                 et_emercontact.setError("Invalid Contact No");

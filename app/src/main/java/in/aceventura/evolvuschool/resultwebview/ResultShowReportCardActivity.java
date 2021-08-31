@@ -214,7 +214,6 @@ public class ResultShowReportCardActivity extends AppCompatActivity {
             //==================
             resultWebView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> {
                 try {
-
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
                     System.out.println(url);
                     request.setMimeType(mimeType);
@@ -241,7 +240,6 @@ public class ResultShowReportCardActivity extends AppCompatActivity {
                 }
             });
             //==================
-
             resultWebView.setWebViewClient(new WebViewClient() {
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -262,7 +260,6 @@ public class ResultShowReportCardActivity extends AppCompatActivity {
                 @Override
                 public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture,
                                               Message resultMsg) {
-
                     WebView newWebView = new WebView(ResultShowReportCardActivity.this);
                     newWebView.getSettings().setJavaScriptEnabled(true);
                     newWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);

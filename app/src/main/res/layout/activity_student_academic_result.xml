@@ -21,22 +21,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/icd_tb_studentacademicresult"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="end"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="80dp"
+        android:elevation="10dp"
+        android:visibility="gone">
 
-        android:layout_marginRight="5dp"
-        android:visibility="gone"
-        android:background="@drawable/card_button_header"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:text="Download Proficiency Certificate"
-            android:textColor="@color/white" />
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_piechart" />
     </LinearLayout>
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/llshowchart"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="71dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_card_rect_navigation"
+        android:elevation="2dp"
+        android:padding="2dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="5dp"
+
+        >
+        <ImageView
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:elevation="1dp"
+
+            android:background="@drawable/ic_resultbar_chart" />
+
+
+    </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/nodata4"
@@ -155,7 +183,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nodata4"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="95dp"
         android:layout_marginBottom="60dp"
         android:orientation="vertical"
         android:visibility="visible" />

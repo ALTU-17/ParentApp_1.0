@@ -395,7 +395,7 @@ public class PaymentWebview extends AppCompatActivity {
                     super.onCloseWindow(window);
                 }
             });
-            Log.e("payment", "Values??" + paymentUrl);
+            Log.e("paymentLoadUrl", "Values??" + paymentUrl);
             paymentWebview.loadUrl(paymentUrl);
         }
 
@@ -408,7 +408,11 @@ public class PaymentWebview extends AppCompatActivity {
         btn_Receipt.setOnClickListener(v -> {
             //only for sfs
             Intent i = new Intent(PaymentWebview.this, ReceiptWebview.class);
+            //s
+
             i.putExtra("receiptUrl", dUrl + "index.php/Worldline/WL_online_payment_receipts_apk?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
+
+
             startActivity(i);
             finish();
         });

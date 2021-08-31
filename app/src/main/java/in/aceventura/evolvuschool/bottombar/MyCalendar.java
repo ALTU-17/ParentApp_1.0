@@ -15,6 +15,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -83,6 +84,7 @@ import in.aceventura.evolvuschool.models.CalendarModel;
 public class MyCalendar extends AppCompatActivity implements OnDateSelectedListener, OnMonthChangedListener {
     MaterialCalendarView calendarView;
     Date date1 = null;
+    Date date2 = null;
     SimpleDateFormat sdf;
     List<CalendarModel> eventsWishList = new ArrayList<>();
     RecyclerView rv_events;
@@ -242,8 +244,7 @@ public class MyCalendar extends AppCompatActivity implements OnDateSelectedListe
 
                 BottomBar bottomBar = (BottomBar) view.findViewById(R.id.bottomBar);
                 bottomBar.setDefaultTabPosition(1);
-                try
-                {
+                try {
 
                     bottomBar.setActiveTabColor(getResources().getColor(R.color.bottomactivateColor));
 
@@ -288,8 +289,7 @@ public class MyCalendar extends AppCompatActivity implements OnDateSelectedListe
                     @Override
                     public void onTabReSelected(int tabId) {
 
-                        if (tabId == R.id.tab_calendar)
-                        {
+                        if (tabId == R.id.tab_calendar) {
                             // The tab with id R.id.tab_favorites was selected,
                             // change your content accordingly.
                             Intent intent = new Intent(MyCalendar.this, MyCalendar.class);
@@ -405,6 +405,7 @@ public class MyCalendar extends AppCompatActivity implements OnDateSelectedListe
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+
                     try {
                         if (response == null) {
 
@@ -412,10 +413,13 @@ public class MyCalendar extends AppCompatActivity implements OnDateSelectedListe
                         }
 
                         Log.e("mycal", "responce==>>" + response);
+                        Log.e("mycalender", "responce==>>" + response);
+                        Log.e("mycalender", "url==>>" + url);
                         eventsWishList.clear();
 
                         CalendarModel evCalendarModel = null;
                         CalendarModel evCalendarModel1 = null;
+                        CalendarModel evCalendarModelends = null;
                         CalendarModel evCalendarModel2 = null;
                         sdf = new SimpleDateFormat("dd-MM-yyyy");
                         /* sdf = new SimpleDateFormat("yyyy/MM/dd");*/
@@ -448,20 +452,41 @@ public class MyCalendar extends AppCompatActivity implements OnDateSelectedListe
                             JSONArray Holidays = jsonObject.getJSONArray("Holidays");
                             for (int i = 0; i < Holidays.length(); i++) {
                                 evCalendarModel1 = new CalendarModel();
+                                evCalendarModelends = new CalendarModel();
                                 JSONObject object = Holidays.getJSONObject(i);
                                 evCalendarModel1.setTitle(object.getString("title"));
+
                                 evCalendarModel1.setEvent_desc(object.getString("event_desc"));
                                 evCalendarModel1.setColor(object.getString("colorcode"));
+
                                 try {
                                     String hoHoliday_Date = object.getString("start_date");
+                                    String end_date = object.getString("end_date");
+                                    eventsWishList.add(evCalendarModel1);
+                                    if (end_date.equals("null")) {
+
+                                    }else {
+                                        Log.e("ValuesEnd", "EndDate><");
+                                        evCalendarModelends.setTitle(object.getString("title")+" Ends");
+                                        evCalendarModelends.setColor(object.getString("colorcode"));
+                                        date2 = sdf.parse(end_date);
+                                       // evCalendarModel1.setEnd_date(date2.getTime());
+                                       // Log.e("ValuesEnd", end_date+"<<EndDate><"+ DateFormat.format("dd-MM-yyyy", new Date(Long.parseLong(String.valueOf(date2.getTime())))));
+                                   //     evCalendarModel1.setStart_date(date1.getTime());
+                                        evCalendarModelends.setStart_date(date2.getTime());
+                                        eventsWishList.add(evCalendarModelends);
+                                    }
                                     date1 = sdf.parse(hoHoliday_Date);
                                     evCalendarModel1.setStart_date(date1.getTime());
+                                   // evCalendarModel1.setStart_date(date2.getTime());
+
                                 } catch (ParseException e) {
                                     e.getMessage();
                                     Log.e("Tag", "errror" + e.getMessage());
                                     e.printStackTrace();
                                 }
-                                eventsWishList.add(evCalendarModel1);
+
+
                             }
                         } catch (Exception e) {
                             e.getMessage();

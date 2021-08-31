@@ -87,7 +87,7 @@ public class StudentDashboard extends AppCompatActivity {
     NotificationBadge mBadgeNotes, mBadgeHomework, mBadgeNoticeSMS, mBadgeRemark;
     String gen, fn, rn, cn, sn, tn, parent_id;
     CardView studCardView, noteCardView, homeworkcardView, ParentNoticeView, remarkCardView,
-            TimeTable, StudentResult, StudentAttendance, OnlineExam, Cirtificate, cv_healthActivity;
+            TimeTable, StudentResult, StudentAttendance, OnlineExam, Cirtificate, cv_chart, cv_healthActivity;
     String filename = "";
     TextView student_Name, tv_roll, tv_cs1, tv_ct1, tv_academic_yr;
     ImageView tlogo, cardstud;
@@ -223,6 +223,7 @@ public class StudentDashboard extends AppCompatActivity {
         StudentAttendance = findViewById(R.id.StudentAttendance);
         OnlineExam = findViewById(R.id.online_exam);
         Cirtificate = findViewById(R.id.Cirtificate);
+        cv_chart = findViewById(R.id.cv_chart);
         cv_healthActivity = findViewById(R.id.cv_healthActivity);
         cardstud = findViewById(R.id.cardstud);
 
@@ -440,6 +441,26 @@ public class StudentDashboard extends AppCompatActivity {
                                 e.getMessage();
                                 Log.e("iconsboard", "receipt_button=>" + e.getMessage());
 
+                            }
+                            try {
+
+                                if (object.getString("graph").equals("1")) {
+                                    cv_chart.setVisibility(View.VISIBLE);
+
+                                    cv_chart.setOnClickListener(v -> {
+                                        Intent intent = new Intent(StudentDashboard.this, ChartActivity.class);
+                                        intent.putExtra("CLASSID", classid);
+                                        intent.putExtra("SECTIONID", sectionid);
+                                        intent.putExtra("SID", sid);
+                                        startActivity(intent);
+                                    });
+                                } else {
+                                    cv_chart.setVisibility(View.GONE);
+                                }
+                            } catch (Exception e) {
+                                e.getMessage();
+                                Log.e("iconsboard", "receipt_button=>" + e.getMessage());
+                                cv_chart.setVisibility(View.GONE);
                             }
                             try {
                                 if (object.getString("certificate").equals("1")) {

@@ -3,6 +3,7 @@ package in.aceventura.evolvuschool.models;
 public class CalendarModel {
     String title, event_desc;
     long start_date;
+    long end_date;
     String color;
     String colorValues;
 
@@ -56,5 +57,13 @@ public class CalendarModel {
 
     public void setStart_date(long start_date) {
         this.start_date = start_date;
+    }
+
+    public long getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(long end_date) {
+        this.end_date = end_date;
     }
 }

@@ -97,7 +97,15 @@ public class NavigationDrawerActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         Log.e("iconsboard", "RespoinsideConditioninside=>" + e.getMessage());
                     }
+                    try {
+                        if (object.getString("book_availability").equals("1")) {
+                            navigationDrawerModels.add(new NavigationDrawerModel("", getString(R.string.books), R.drawable.studying));
 
+                        } else {
+
+                        }
+                    } catch (Exception e) {
+                    }
 
                 } catch (Exception e) {
                     e.getMessage();
@@ -111,7 +119,6 @@ public class NavigationDrawerActivity extends AppCompatActivity {
                 navigationDrawerModels.add(new NavigationDrawerModel("", getString(R.string.share_app), R.drawable.ic_share));
                 navigationDrawerModels.add(new NavigationDrawerModel("", getString(R.string.change_password), R.drawable.change_password));
                 navigationDrawerModels.add(new NavigationDrawerModel("", getString(R.string.about_us), R.drawable.update));
-                navigationDrawerModels.add(new NavigationDrawerModel("", getString(R.string.books), R.drawable.studying));
 
                 navigationDrawerModels.add(new NavigationDrawerModel("", getString(R.string.log_out), R.drawable.logout));
 

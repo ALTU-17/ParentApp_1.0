@@ -54,6 +54,18 @@ public class Calendar_EventsWishAdapter extends RecyclerView.Adapter<Calendar_Ev
         } catch (Exception e) {
             e.printStackTrace();
         }
+       /* if (String.valueOf(model.getEnd_date()).toString().equals("null")){
+
+        }else {
+            holder.tvEventName.setText(DateFormat.format("dd-MM-yyyy", new Date(Long.parseLong(String.valueOf(model.getEnd_date())))).toString() +"   "+ model.getTitle()+"End's");
+            try {
+                holder.ll_color.setBackgroundColor(Color.parseColor((model.getColor())));
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }*/
+
 
 
     }

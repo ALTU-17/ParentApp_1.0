@@ -23,6 +23,7 @@ import android.widget.Toast;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -75,6 +76,7 @@ public class StudentACademicResult extends AppCompatActivity {
     String CBSEFLAG = "";
     AcademicResultPojo vpojo;// ll_Blank.setVisibility(View.VISIBLE);
     String Sname;
+    CardView llshowchart;
     DatabaseHelper mDatabaseHelper;
     public String name;
     String newUrl, dUrl;
@@ -101,6 +103,7 @@ public class StudentACademicResult extends AppCompatActivity {
         nodata.setVisibility(View.GONE);
         mContext = this;
         mActivity = this;
+        llshowchart=findViewById(R.id.llshowchart);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         ll_Download_Proficiency_Certificate = findViewById(R.id.ll_Download_Proficiency_Certificate);
@@ -130,6 +133,7 @@ public class StudentACademicResult extends AppCompatActivity {
         getResult();
         getReport_Card();
         show_icons_parentdashboard_apk();
+
         TextView school_title = tb_main1.findViewById(R.id.school_title);
         TextView ht_Teachernote = tb_main1.findViewById(R.id.ht_Teachernote);
         TextView tv_academic_yr = tb_main1.findViewById(R.id.tv_academic_yr);
@@ -140,9 +144,11 @@ public class StudentACademicResult extends AppCompatActivity {
         ll_Blank = tb_main1.findViewById(R.id.ll_Blank);
         ll_CBSE.setVisibility(View.GONE);
         ll_Blank.setVisibility(View.VISIBLE);
+
         tv_result.setText("View Report Card");
         ImageView ic_back = tb_main1.findViewById(R.id.ic_back);
         ImageView drawer = tb_main1.findViewById(R.id.drawer);
+
         tv_academic_yr.setText("(" + SharedPrefManager.getInstance(getApplicationContext()).getAcademicYear() + ")");
         school_title.setText(name + " Evolvu Parent App");
         ht_Teachernote.setText("Result");
@@ -166,6 +172,9 @@ public class StudentACademicResult extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
 
 
         //---------Code to change the logo dynamically based on urls (NEW) -----------------
@@ -266,18 +275,40 @@ public class StudentACademicResult extends AppCompatActivity {
                             Log.e("iconsboard", "?>>>>" + object.getString("academic_result"));
                             try {
                                 if (object.getString("cbse_reportcard").equals("1")) {
-                                    ll_CBSE.setVisibility(View.VISIBLE);
-
-
-                                }else {
+                                    //ll_CBSE.setVisibility(View.VISIBLE);
+                                    getResult();
+                                } else {
                                     ll_CBSE.setVisibility(View.GONE);
                                     ll_Blank.setVisibility(View.VISIBLE);
-
                                 }
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.getMessage();
                                 ll_CBSE.setVisibility(View.GONE);
                                 ll_Blank.setVisibility(View.VISIBLE);
+                            }
+
+
+                            try
+                            {
+                                if (object.getString("graph").equals("1"))
+                                {
+                                    llshowchart.setVisibility(View.VISIBLE);
+                                    llshowchart.setOnClickListener(v -> {
+                                        Intent intent = new Intent(StudentACademicResult.this, ChartActivity.class);
+                                        intent.putExtra("CLASSID", classid);
+                                        intent.putExtra("SECTIONID", sectionid);
+                                        intent.putExtra("SID", sid);
+                                        startActivity(intent);
+                                    });
+                                }
+                                else
+                                {
+                                    llshowchart.setVisibility(View.GONE);
+                                }
+                            } catch (Exception e) {
+                                e.getMessage();
+                                Log.e("iconsboard", "receipt_button=>" + e.getMessage());
+                                llshowchart.setVisibility(View.GONE);
                             }
 
                         } catch (Exception e) {
@@ -329,12 +360,7 @@ public class StudentACademicResult extends AppCompatActivity {
                     JSONObject object = new JSONObject(response.toString());
                     String Msg = object.getString("error_msg");
                     // tv_pay_errormsg
-                    if (Msg.equalsIgnoreCase("") || Msg.equals("")) {
-                        tv_pay_errormsg.setVisibility(View.GONE);
-                    } else {
-                        tv_pay_errormsg.setVisibility(View.VISIBLE);
-                        tv_pay_errormsg.setText("" + Msg);
-                    }
+
                     if (object.getString("flag").equals("1")) {
                         ll_result.setVisibility(View.VISIBLE);
                         tv_result.setVisibility(View.VISIBLE);
@@ -342,6 +368,13 @@ public class StudentACademicResult extends AppCompatActivity {
                     } else {
                         tv_result.setVisibility(View.GONE);
                         ll_result.setVisibility(View.GONE);
+                        if (Msg.equalsIgnoreCase("") || Msg.equals("")) {
+                            tv_pay_errormsg.setVisibility(View.GONE);
+                        } else {
+                            tv_pay_errormsg.setVisibility(View.VISIBLE);
+                            tv_pay_errormsg.setText("" + Msg);
+                        }
+
 
                     }
 
@@ -358,6 +391,7 @@ public class StudentACademicResult extends AppCompatActivity {
                 ll_result.setVisibility(View.GONE);
             }
         }) {
+
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
@@ -372,6 +406,7 @@ public class StudentACademicResult extends AppCompatActivity {
                 Log.e("check_report_card", "paramiteriii" + params);
                 return params;
             }
+
         };
         requestQueue.add(request);
     }
@@ -392,6 +427,8 @@ public class StudentACademicResult extends AppCompatActivity {
                         try {
                             Log.e("AcadamicResult", "Responce>>" + response);
                             JSONArray jsonArray = new JSONArray(response.replace("ï»¿", ""));
+                            Log.e("AcadamicResult", "jsonArrayCONVEYR>>" + jsonArray);
+
                             int i;
                             exam_list = new ArrayList<>(jsonArray.length());
                             String ename = null;
@@ -426,6 +463,7 @@ public class StudentACademicResult extends AppCompatActivity {
                                         }
                                         if (ename.equalsIgnoreCase("Final exam")) {
                                             Log.e("AcadamicResult", "within" + jsonObject.getString("term_id"));
+
                                             try {
                                                 Log.e("Exam_Name_Term_Id", "AcadamicResult" + jsonObject.getString("term_id"));
                                                 if (class_name.equals("9")) {
@@ -447,8 +485,8 @@ public class StudentACademicResult extends AppCompatActivity {
                                                     mCBSC = "F";
                                                     ll_CBSE.setVisibility(View.GONE);
                                                     ll_Blank.setVisibility(View.VISIBLE);
-
                                                 }
+
                                             } catch (Exception e) {
                                                 e.getMessage();
 
@@ -457,6 +495,7 @@ public class StudentACademicResult extends AppCompatActivity {
                                             }
                                         } else {
                                             mCBSC = "F";
+
                                         }
                                     } catch (Exception e) {
                                         e.printStackTrace();
@@ -473,6 +512,7 @@ public class StudentACademicResult extends AppCompatActivity {
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
+                                    Log.e("HighestMS", "errr" + e.getMessage());
                                 }
 
                                 exam_list.add(new Exam_list(ename, detail_results));
@@ -526,6 +566,7 @@ public class StudentACademicResult extends AppCompatActivity {
                 Log.e("cbseformat_report_card", "response>>" + response);
                 try {
                     JSONObject object = new JSONObject(response);
+                    CBSEFLAG = object.getString("flag");
                     if (object.getString("flag").equals("1")) {
                         ll_CBSE.setVisibility(View.VISIBLE);
                         ll_Blank.setVisibility(View.GONE);
@@ -578,7 +619,7 @@ public class StudentACademicResult extends AppCompatActivity {
 
                 Log.e("cbseformat_report_card", "paramiteriii" + params);
                 return params;
-             }
+            }
         };
         requestQueue.add(request);
 

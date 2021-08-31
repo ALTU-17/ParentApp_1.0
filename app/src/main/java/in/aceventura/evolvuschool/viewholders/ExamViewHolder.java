@@ -296,7 +296,6 @@ public class ExamViewHolder extends GroupViewHolder {
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    //  Toast.makeText(mContext1, "Shaikh>" + response, Toast.LENGTH_LONG).show();
                     Log.e("Download_Proficiency", "Mainresponse>" + response);
 
                     try {
@@ -323,7 +322,6 @@ public class ExamViewHolder extends GroupViewHolder {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(mContext1, "Shaikh>" + error.getMessage(), Toast.LENGTH_LONG).show();
 
                 }
             }) {

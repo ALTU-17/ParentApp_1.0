@@ -70,6 +70,7 @@ public class NavigationDrawer extends AppCompatActivity {
         iv_AcademicYear = findViewById(R.id.iv_AcademicYear);
         imgbtn_rv_bonafide = findViewById(R.id.imgbtn_rv_bonafide);
         iv_AcademicYear.setVisibility(View.GONE);
+
         imgbtn_rv_bonafide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +102,7 @@ public class NavigationDrawer extends AppCompatActivity {
         newUrl = mDatabaseHelper.getURL(1);
         dUrl = mDatabaseHelper.getPURL(1);
 
-        //visibility base on schools
+
         library.setVisibility(View.GONE);
         //extra2.setVisibility(View.GONE);
         //extra1.setVisibility(View.GONE);
@@ -111,7 +112,9 @@ public class NavigationDrawer extends AppCompatActivity {
             newUrl = mDatabaseHelper.getURL(1);
             dUrl = mDatabaseHelper.getPURL(1);
         }
+
         show_icons_parentdashboard_apk();
+
         Log.e("nameninddn", "vailed" + name + "newUrl??" + newUrl + "dUrl" + dUrl);
 
         if (name.equals("SACS")) {
@@ -312,6 +315,7 @@ public class NavigationDrawer extends AppCompatActivity {
                 }
                 ////9405"2020-2021"//SharedPrefManager.getInstance(MyCalendar.this).getAcademicYear()
                 params.put("short_name", name);
+                params.put("academic_yr", SharedPrefManager.getInstance(getApplicationContext()).getAcademicYear());
 
                 Log.e("iconsboard", "params=>" + params.toString());
 
@@ -354,6 +358,7 @@ public class NavigationDrawer extends AppCompatActivity {
 
         //ARNOLDS
         if (name.equals("SACS")) {
+            Log.e("paymentView","SACS>>");
             username1 = (String.valueOf((SharedPrefManager.getInstance(this).getUserId())));
             username = Uri.encode(username1, ALLOWED_URI_CHARS);
             secretKey = "aceventura@services";
@@ -368,6 +373,10 @@ public class NavigationDrawer extends AppCompatActivity {
                     "&encryptedUsername=" + encryptedUsername +
                     "&short_name=" + name;
 
+            Log.e("paymentView","SACS>>"+url);
+
+
+
             System.out.println("PAYMENT_URL => " + url);
             Intent intent = new Intent(NavigationDrawer.this, PaymentWebview.class);
             intent.putExtra("paymentUrl", url);
@@ -375,9 +384,10 @@ public class NavigationDrawer extends AppCompatActivity {
             intent.putExtra("reg_id", reg_id);
             startActivity(intent);
         }
-        //SFS
-        else {
+        else if(name.equals("SFSPUNE") ||name.equals("SJSKW")) {
+
             secretKey = "evolvu@sfs";
+
             username = (String.valueOf((SharedPrefManager.getInstance(this).getUserId())));
             try {
                 encryptedUsername = Encryption.SHA1(username + secretKey);
@@ -389,7 +399,34 @@ public class NavigationDrawer extends AppCompatActivity {
                     "&academic_yr=" + academic_yr + "&user_id=" + username +
                     "&encryptedUsername=" + encryptedUsername +
                     "&short_name=" + name;
+            Log.e("paymentView","SFSPUNE,SJSKW>>"+url);
 
+            System.out.println("PAYMENT_URL => " + url);
+            Intent intent = new Intent(NavigationDrawer.this, PaymentWebview.class);
+            intent.putExtra("paymentUrl", url);
+            intent.putExtra("academic_yr", academic_yr);
+            intent.putExtra("reg_id", reg_id);
+            startActivity(intent);
+        }else{
+
+            //todo  sfsne and sfsnw school
+
+
+            secretKey = "evolvu@sfs";
+            username = (String.valueOf((SharedPrefManager.getInstance(this).getUserId())));
+            try {
+                encryptedUsername = Encryption.SHA1(username + secretKey);
+            } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+
+            String url = dUrl + "index.php/Billdesk/BD_online_payment_req_apk/?reg_id=" + reg_id +
+                    "&academic_yr=" + academic_yr + "&user_id=" + username +
+                    "&encryptedUsername=" + encryptedUsername +
+                    "&short_name=" + name;
+
+            Log.e("paymentView","sfsne and sfsnw>>"+url);
             System.out.println("PAYMENT_URL => " + url);
             Intent intent = new Intent(NavigationDrawer.this, PaymentWebview.class);
             intent.putExtra("paymentUrl", url);

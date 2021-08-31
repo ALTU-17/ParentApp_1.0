@@ -420,6 +420,7 @@
                             android:layout_height="wrap_content"
                             android:text="*"
                             android:textColor="@color/new2"
+                            android:visibility="gone"
                             app:fontFamily="@font/opensans_semibold" />
 
                         <TextView
@@ -432,12 +433,19 @@
                             android:textSize="15sp"
                             app:fontFamily="@font/opensans_semibold" />
 
+                        <TextView
+                            android:id="@+id/tv_admission_class"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp" />
+
                         <Spinner
                             android:id="@+id/admission_class"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="#000000"
-                            android:textSize="10sp"></Spinner>
+                            android:textSize="10sp"
+                            android:visibility="gone"></Spinner>
 
                     </LinearLayout>
 

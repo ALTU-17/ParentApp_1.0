@@ -34,9 +34,10 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:replace="android:label"
         tools:targetApi="n">
+        <activity android:name=".ChartActivity"></activity>
         <activity
             android:name=".NavigationDrawerActivity"
-            android:theme="@style/Theme.Transparent"></activity>
+            android:theme="@style/Theme.Transparent" />
         <activity android:name=".BonafideCertificateActivityList" />
         <activity android:name=".BonafideCertificateActivity" />
         <activity android:name=".ChangeAcademicYearActivity" />

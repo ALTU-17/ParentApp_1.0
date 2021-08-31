@@ -88,6 +88,7 @@ public class BonafideCertificateActivity extends AppCompatActivity implements On
         arrayList = new ArrayList<>();
 
         mDatabaseHelper = new DatabaseHelper(this);
+
         if (name == null || name.equals("")) {
             name = mDatabaseHelper.getName(1);
             newUrl = mDatabaseHelper.getURL(1);
