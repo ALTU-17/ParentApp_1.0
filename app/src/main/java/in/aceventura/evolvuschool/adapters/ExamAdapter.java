@@ -23,8 +23,9 @@ public class ExamAdapter extends ExpandableRecyclerViewAdapter<ExamViewHolder, R
     Activity mActivity;
     String mCBSC;
     String Exam_Name_Term_Id;
+    String class_name;
 
-    public ExamAdapter(Activity mActivity, Context context, String mCBSC,String Exam_Name_Term_Id,String term_id1, String term_id2, String Sid, List<? extends ExpandableGroup> groups) {
+    public ExamAdapter(Activity mActivity,String class_name, Context context, String mCBSC, String Exam_Name_Term_Id, String term_id1, String term_id2, String Sid, List<? extends ExpandableGroup> groups) {
         super(groups);
         this.context = context;
         this.sid = Sid;
@@ -32,9 +33,12 @@ public class ExamAdapter extends ExpandableRecyclerViewAdapter<ExamViewHolder, R
         this.term_id2 = term_id2;
         this.mActivity = mActivity;
         this.mCBSC = mCBSC;
-        this.Exam_Name_Term_Id=Exam_Name_Term_Id;
-        Log.e("EXAMADAPTER","VALUES>"+"TERM 1>"+term_id1);
-        Log.e("EXAMADAPTER","VALUES>"+"TERM 2>"+term_id2);
+        this.class_name = class_name;
+        this.Exam_Name_Term_Id = Exam_Name_Term_Id;
+        Log.e("EXAMADAPTER", "VALUES>" + "TERM 1>" + term_id1);
+        Log.e("EXAMADAPTER", "VALUES>" + "TERM 2>" + term_id2);
+        Log.e("EXAMADAPTER", "VALUES>" + "TERM 2>" + Exam_Name_Term_Id);
+        Log.e("EXAMADAPTER", "VALUES>" + "class_name>" + class_name);
 
     }
 
@@ -42,14 +46,14 @@ public class ExamAdapter extends ExpandableRecyclerViewAdapter<ExamViewHolder, R
     public ExamViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_items_exams, parent, false);
-        return new ExamViewHolder(view, Exam_Name_Term_Id,term_id1, term_id2, mActivity, context, sid);
+        return new ExamViewHolder(view, class_name,Exam_Name_Term_Id, term_id1, term_id2, mActivity, context, sid);
     }
 
     @Override
     public ResultViewHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_items_result, parent, false);
-        return new ResultViewHolder(view,mCBSC);
+        return new ResultViewHolder(view, mCBSC);
     }
 
     @Override
@@ -69,10 +73,10 @@ public class ExamAdapter extends ExpandableRecyclerViewAdapter<ExamViewHolder, R
     @Override
     public void onBindGroupViewHolder(ExamViewHolder holder, int flatPosition, ExpandableGroup group) {
         holder.setExamTitle(group.getTitle());
-        if (group.getTitle().equalsIgnoreCase("Term 1")) {
+        if (group.getTitle().equalsIgnoreCase("Term 1") || group.getTitle().equalsIgnoreCase("Term 2") || group.getTitle().equalsIgnoreCase("Final exam")) {
+
             holder.setITEM(context);
-        } else if (group.getTitle().equalsIgnoreCase("Term 2")) {
-            holder.setITEM(context);
+
         } else {
 
         }

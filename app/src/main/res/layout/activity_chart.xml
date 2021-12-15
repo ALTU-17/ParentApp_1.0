@@ -4,94 +4,178 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/mainbckgrnd"
+    android:orientation="vertical"
     tools:context=".ChartActivity">
-    <androidx.core.widget.NestedScrollView
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <LinearLayout
+        <include
+            android:id="@+id/icd_tb_chart"
+            layout="@layout/header_topbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/custom_card_rect"
-                android:orientation="vertical"
-                android:padding="20dp">
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp" />
 
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/activity_main_piechart"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="60dp">
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/custom_card_rect"
-                android:orientation="vertical"
-
-                android:padding="20dp">
-
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/chart1"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_above="@+id/seekBar1" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:visibility="gone"
-                android:background="@drawable/custom_card_rect"
-                android:orientation="vertical"
-                android:padding="20dp">
 
-                <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/severityBarChart"
+                android:orientation="vertical">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="320dp"
-                   />
+                    android:layout_margin="10dp"
+                    android:background="@drawable/custom_card_rect"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/activity_main_piechart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
-            </LinearLayout>
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="320dp"
-                android:visibility="gone"
-                android:layout_margin="10dp"
-                android:background="@drawable/custom_card_rect"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-
-                <com.anychart.AnyChartView
-                    android:id="@+id/any_chart_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-            </LinearLayout>
-        </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/custom_card_rect"
+                    android:orientation="vertical"
 
-    </androidx.core.widget.NestedScrollView>
+                    android:padding="20dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="-18dp"
+                            android:background="@color/white"
+                            android:elevation="1dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            android:weightSum="4">
+
+                            <TextView
+                                android:id="@+id/tv_tv1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="4"
+                                android:text="Periodic test 1"
+                                android:textColor="@color/black"
+                                android:textSize="8dp"
+                                android:visibility="gone"></TextView>
+
+                            <TextView
+                                android:id="@+id/tv_tv2"
+
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:text="Term2"
+                                android:textColor="@color/black"
+                                android:textSize="8dp"
+                                android:visibility="gone"></TextView>
+
+                            <TextView
+                                android:id="@+id/tv_tv3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Peroidic Test 2"
+                                android:textColor="@color/black"
+                                android:textSize="8dp"
+                                android:visibility="gone"></TextView>
+
+                            <TextView
+                                android:id="@+id/tv_tv4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Peroidic Test 1"
+                                android:textColor="@color/black"
+                                android:textSize="8dp"
+                                android:visibility="gone"></TextView>
+
+
+                        </LinearLayout>
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart1"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/custom_card_rect"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/severityBarChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="320dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/custom_card_rect"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:visibility="gone">
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/bb_remark"
+            layout="@layout/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
 </LinearLayout>

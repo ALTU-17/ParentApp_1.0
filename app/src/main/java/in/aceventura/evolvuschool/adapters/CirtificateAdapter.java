@@ -26,9 +26,13 @@ import java.util.Date;
 import java.util.List;
 
 import in.aceventura.evolvuschool.CirtificateActivity;
+
 import in.aceventura.evolvuschool.DataSet;
+
 import in.aceventura.evolvuschool.NoticeDetails;
+
 import in.aceventura.evolvuschool.R;
+
 import in.aceventura.evolvuschool.Sqlite.DatabaseHelper;
 
 public class CirtificateAdapter extends RecyclerView.Adapter<CirtificateAdapter.ViewHolder> {
@@ -79,13 +83,17 @@ public class CirtificateAdapter extends RecyclerView.Adapter<CirtificateAdapter.
         holder.tv_cirStudentName.setText(model.getCirfirst_name() + " " + model.getCirlast_name());
 
         //filename = model.getCirfirst_name() + " " + model.getCirlast_name();
-        if (model.getCirposition().equals("1")) {
+       /* if (model.getCirposition().equals("1")) {
             holder.tv_cirPosition.setText("Position:First");
         } else if (model.getCirposition().equals("2")) {
             holder.tv_cirPosition.setText("Position:Second");
         } else if (model.getCirposition().equals("3")) {
             holder.tv_cirPosition.setText("Position:Third");
-        }
+        }else {
+            holder.tv_cirPosition.setText(model.getCirposition());
+        }*/
+        holder.tv_cirPosition.setText("Spot: " + model.getCirposition());
+
         holder.iv_download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,7 +123,7 @@ public class CirtificateAdapter extends RecyclerView.Adapter<CirtificateAdapter.
                         Uri uri = Uri.parse(url);
                         System.out.println("NOTICEDOWNLOADURL - " + uri.toString());
                         DownloadManager.Request request = new DownloadManager.Request(uri);
-//            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        //            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
                         request.setMimeType("application/");
                         request.allowScanningByMediaScanner();
@@ -129,7 +137,7 @@ public class CirtificateAdapter extends RecyclerView.Adapter<CirtificateAdapter.
 
                         } catch (Exception e) {
                             //v 28+
-                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, StringFile+filename);//(Environment.DIRECTORY_PICTURES,"parag.jpeg")"/KrishanImages/" +
+                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, StringFile + filename);//(Environment.DIRECTORY_PICTURES,"parag.jpeg")"/KrishanImages/" +
                         }
 
 
@@ -196,16 +204,19 @@ public class CirtificateAdapter extends RecyclerView.Adapter<CirtificateAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         TextView tv_cirEvent, tv_cirDate, tv_cirStudentName, tv_cirPosition;
         ImageView iv_download;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
             tv_cirEvent = itemView.findViewById(R.id.tv_cirEvent);
             tv_cirDate = itemView.findViewById(R.id.tv_cirDate);
             tv_cirStudentName = itemView.findViewById(R.id.tv_cirStudentName);
             tv_cirPosition = itemView.findViewById(R.id.tv_cirPosition);
             iv_download = itemView.findViewById(R.id.iv_download);
+
         }
     }
 }

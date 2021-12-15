@@ -103,7 +103,7 @@ public class StudentACademicResult extends AppCompatActivity {
         nodata.setVisibility(View.GONE);
         mContext = this;
         mActivity = this;
-        llshowchart=findViewById(R.id.llshowchart);
+        llshowchart = findViewById(R.id.llshowchart);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         ll_Download_Proficiency_Certificate = findViewById(R.id.ll_Download_Proficiency_Certificate);
@@ -132,20 +132,18 @@ public class StudentACademicResult extends AppCompatActivity {
         //Top Bar
         getResult();
         getReport_Card();
-        show_icons_parentdashboard_apk();
+        //   show_icons_parentdashboard_apk();
+        ll_result = findViewById(R.id.ll_resultsr);
+        ll_CBSE = findViewById(R.id.ll_CBSEsr);
+        tv_result = findViewById(R.id.tv_resultsr);
+        tv_result.setText("View Report Card");
 
         TextView school_title = tb_main1.findViewById(R.id.school_title);
         TextView ht_Teachernote = tb_main1.findViewById(R.id.ht_Teachernote);
         TextView tv_academic_yr = tb_main1.findViewById(R.id.tv_academic_yr);
         tv_pay_errormsg = tb_main1.findViewById(R.id.tv_pay_errormsg);
-        tv_result = tb_main1.findViewById(R.id.tv_result);
-        ll_result = tb_main1.findViewById(R.id.ll_result);
-        ll_CBSE = tb_main1.findViewById(R.id.ll_CBSE);
-        ll_Blank = tb_main1.findViewById(R.id.ll_Blank);
-        ll_CBSE.setVisibility(View.GONE);
-        ll_Blank.setVisibility(View.VISIBLE);
 
-        tv_result.setText("View Report Card");
+
         ImageView ic_back = tb_main1.findViewById(R.id.ic_back);
         ImageView drawer = tb_main1.findViewById(R.id.drawer);
 
@@ -163,18 +161,6 @@ public class StudentACademicResult extends AppCompatActivity {
                 finish();
             }
         });
-        tv_result.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(StudentACademicResult.this, ResultWebViewActivity.class);
-                i.putExtra("student_id", sid);// TODO: 09-02-2020 added
-                i.putExtra("class_id", classid);// TODO: 09-02-2020 added
-                startActivity(i);
-            }
-        });
-
-
-
 
 
         //---------Code to change the logo dynamically based on urls (NEW) -----------------
@@ -249,9 +235,20 @@ public class StudentACademicResult extends AppCompatActivity {
         ///
 
         recyclerView = findViewById(R.id.recyclerExamlist);
-        examAdapter = new ExamAdapter(mActivity, mContext, mCBSC, Exam_Name_Term_Id, term_id1, term_id2, sid, exam_list);
+        //examAdapter = new ExamAdapter(mActivity, class_name,mContext, mCBSC, Exam_Name_Term_Id, term_id1, term_id2, sid, exam_list);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(new LinearLayoutManager(StudentACademicResult.this));
+        tv_result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(StudentACademicResult.this, ResultWebViewActivity.class);
+                i.putExtra("student_id", sid);// TODO: 09-02-2020 added
+                i.putExtra("class_id", classid);// TODO: 09-02-2020 added
+                i.putExtra("class_name", class_name);// TODO: 09-02-2020 added
+                startActivity(i);
+            }
+        });
+
 
     }
 
@@ -288,10 +285,8 @@ public class StudentACademicResult extends AppCompatActivity {
                             }
 
 
-                            try
-                            {
-                                if (object.getString("graph").equals("1"))
-                                {
+                            try {
+                                if (object.getString("graph").equals("1")) {
                                     llshowchart.setVisibility(View.VISIBLE);
                                     llshowchart.setOnClickListener(v -> {
                                         Intent intent = new Intent(StudentACademicResult.this, ChartActivity.class);
@@ -300,9 +295,7 @@ public class StudentACademicResult extends AppCompatActivity {
                                         intent.putExtra("SID", sid);
                                         startActivity(intent);
                                     });
-                                }
-                                else
-                                {
+                                } else {
                                     llshowchart.setVisibility(View.GONE);
                                 }
                             } catch (Exception e) {
@@ -360,19 +353,25 @@ public class StudentACademicResult extends AppCompatActivity {
                     JSONObject object = new JSONObject(response.toString());
                     String Msg = object.getString("error_msg");
                     // tv_pay_errormsg
-
+                    LinearLayout ll_main_result = findViewById(R.id.ll_main_result);
                     if (object.getString("flag").equals("1")) {
                         ll_result.setVisibility(View.VISIBLE);
                         tv_result.setVisibility(View.VISIBLE);
-
+                        //    llshowchart.setVisibility(View.VISIBLE);
+                        ll_main_result.setVisibility(View.VISIBLE);
+                        show_icons_parentdashboard_apk();
                     } else {
                         tv_result.setVisibility(View.GONE);
                         ll_result.setVisibility(View.GONE);
+                        ll_main_result.setVisibility(View.GONE);
+
                         if (Msg.equalsIgnoreCase("") || Msg.equals("")) {
                             tv_pay_errormsg.setVisibility(View.GONE);
                         } else {
                             tv_pay_errormsg.setVisibility(View.VISIBLE);
                             tv_pay_errormsg.setText("" + Msg);
+                            llshowchart.setVisibility(View.GONE);
+
                         }
 
 
@@ -440,17 +439,20 @@ public class StudentACademicResult extends AppCompatActivity {
                                     ename = jsonObject.getString("Exam_name");
                                     try {
                                         class_name = jsonObject.getString("class_name");
-                                        if (ename.equalsIgnoreCase("Term 1")) {
+
+                                        if (ename.equalsIgnoreCase("Final exam") || ename.equalsIgnoreCase("Term 1") || ename.equalsIgnoreCase("Term 2")) {
+                                            Log.e("AcadamicResult", "within" + jsonObject.getString("term_id"));
+
                                             try {
                                                 Log.e("AcadamicResult", "within" + jsonObject.getString("term_id"));
                                                 term_id1 = jsonObject.getString("term_id");
                                             } catch (Exception e) {
                                                 e.getMessage();
-                                                term_id1 = "";
+                                               // term_id1 = "";
                                                 Log.e("CHECKING", "VALUERROR>" + e.getMessage());
                                             }
-                                        } else if (ename.equalsIgnoreCase("Term 2")) {
-                                            try {
+
+                                         try {
                                                 term_id2 = jsonObject.getString("term_id");
 
                                             } catch (Exception e) {
@@ -458,20 +460,16 @@ public class StudentACademicResult extends AppCompatActivity {
                                                 term_id2 = "";
 
                                             }
-                                            Log.e("AcadamicResult", "within" + jsonObject.getString("term_id"));
 
-                                        }
-                                        if (ename.equalsIgnoreCase("Final exam")) {
-                                            Log.e("AcadamicResult", "within" + jsonObject.getString("term_id"));
-
-                                            try {
+                                            try
+                                            {
+                                                //todo cbse for 9 n 11 we callet examId other than we take term id
                                                 Log.e("Exam_Name_Term_Id", "AcadamicResult" + jsonObject.getString("term_id"));
-                                                if (class_name.equals("9")) {
+                                                if (class_name.equals("9") || class_name.equals("11")) {
                                                     mCBSC = "T";
+                                                   // Exam_Name_Term_Id = jsonObject.getString("term_id");
+                                                    Exam_Name_Term_Id = jsonObject.getString("Exam_id");
 
-                                                    Exam_Name_Term_Id = jsonObject.getString("term_id");
-                                                    Log.e("Exam_Name_Term_Id", "AcadamicResult" + jsonObject.getString("term_id"));
-                                                    Log.e("Exam_Name_Term_Id", "AcadamicResult" + Exam_Name_Term_Id);
                                                     getcheck_cbseformat_report_card();
                                                     if (getcheck_cbseformat_report_card().equals("1")) {
 
@@ -519,7 +517,7 @@ public class StudentACademicResult extends AppCompatActivity {
                             }
                             //viwe
 
-                            examAdapter = new ExamAdapter(mActivity, mContext, mCBSC, Exam_Name_Term_Id, term_id1, term_id2, sid, exam_list);
+                            examAdapter = new ExamAdapter(mActivity,class_name, mContext, mCBSC, Exam_Name_Term_Id, term_id1, term_id2, sid, exam_list);
                             recyclerView.setAdapter(examAdapter);
                             examAdapter.notifyDataSetChanged();
                         } catch (JSONException e) {
@@ -569,7 +567,7 @@ public class StudentACademicResult extends AppCompatActivity {
                     CBSEFLAG = object.getString("flag");
                     if (object.getString("flag").equals("1")) {
                         ll_CBSE.setVisibility(View.VISIBLE);
-                        ll_Blank.setVisibility(View.GONE);
+                        //ll_Blank.setVisibility(View.GONE);
                         ll_CBSE.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -579,6 +577,7 @@ public class StudentACademicResult extends AppCompatActivity {
                                 Intent i = new Intent(StudentACademicResult.this, ResultShowReportCardActivity.class);
                                 i.putExtra("student_id", sid);// TODO: 09-02-2020 added
                                 i.putExtra("class_id", classid);// TODO: 09-02-2020 added
+                                i.putExtra("class_name", class_name);// TODO: 09-02-2020 added
                                 startActivity(i);
 
                             }
@@ -586,7 +585,7 @@ public class StudentACademicResult extends AppCompatActivity {
                         });
                     } else {
                         ll_CBSE.setVisibility(View.GONE);
-                        ll_Blank.setVisibility(View.VISIBLE);
+                        //ll_Blank.setVisibility(View.VISIBLE);
                     }
 
                 } catch (Exception e) {
@@ -602,7 +601,7 @@ public class StudentACademicResult extends AppCompatActivity {
                 Log.e("cbseformat_report_card", "responseERROR>>" + error.getMessage());
 
                 ll_CBSE.setVisibility(View.GONE);
-                ll_Blank.setVisibility(View.VISIBLE);
+                // ll_Blank.setVisibility(View.VISIBLE);
 
             }
         }) {

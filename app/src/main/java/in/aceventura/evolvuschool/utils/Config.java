@@ -79,7 +79,7 @@ public class Config {
     public static final String LOCAL_ANDROID_VERSION_DAILOG_TITLE = "Update Available";
 
     // TODO: Change the version before uploading apk
-    public static final String LOCAL_ANDROID_VERSION = "2.37";
+    public static final String LOCAL_ANDROID_VERSION = "2.41";//2.39/2.40 is login policy is fails to load
 
     // TODO: Change the message before uploading apk
     public static final String LOCAL_ANDROID_VERSION_MESSAGE = "New update is available."
@@ -93,7 +93,7 @@ public class Config {
 
 
     //TODO:  Aceventura Server DEMO --->
-   public static final String NEW_LOGIN = "http://aceventura.in/demo/evolvuUserService/";
+    public static final String NEW_LOGIN = "http://aceventura.in/demo/evolvuUserService/";
 
 
     // public static final String NEW_LOGIN = "http://aceventura.in/demo/evolvuUserService/validate_user\n";

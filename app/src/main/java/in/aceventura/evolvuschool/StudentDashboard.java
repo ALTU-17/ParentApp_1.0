@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -62,6 +63,7 @@ import co.mobiwise.materialintro.shape.Focus;
 import co.mobiwise.materialintro.shape.FocusGravity;
 import co.mobiwise.materialintro.shape.ShapeType;
 import co.mobiwise.materialintro.view.MaterialIntroView;
+import in.aceventura.evolvuschool.Payment.PaymentWebview;
 import in.aceventura.evolvuschool.Sqlite.DatabaseHelper;
 import in.aceventura.evolvuschool.Sqlite.StudentsDatabaseHelper;
 import in.aceventura.evolvuschool.bottombar.MyCalendar;
@@ -84,9 +86,10 @@ public class StudentDashboard extends AppCompatActivity {
     ImageButton drawer;
     RelativeLayout stud_name;
     ProgressBar myprogressbar;
+    String FeePayemtTrip = "N";
     NotificationBadge mBadgeNotes, mBadgeHomework, mBadgeNoticeSMS, mBadgeRemark;
     String gen, fn, rn, cn, sn, tn, parent_id;
-    CardView studCardView, noteCardView, homeworkcardView, ParentNoticeView, remarkCardView,
+    CardView studCardView, cv_feePayment, noteCardView, homeworkcardView, ParentNoticeView, remarkCardView,
             TimeTable, StudentResult, StudentAttendance, OnlineExam, Cirtificate, cv_chart, cv_healthActivity;
     String filename = "";
     TextView student_Name, tv_roll, tv_cs1, tv_ct1, tv_academic_yr;
@@ -104,7 +107,8 @@ public class StudentDashboard extends AppCompatActivity {
     private int STORAGE_PERMISSION_CODE = 23;
     View tb_main1;
     TextView tv_studentDashboardHediing;
-
+    private String payment_url = "";
+    LinearLayout ll_Cirtificate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,6 +214,8 @@ public class StudentDashboard extends AppCompatActivity {
             e.getMessage();
         }
         student_Name = findViewById(R.id.student_Name);
+        ll_Cirtificate = findViewById(R.id.ll_Cirtificate);
+        cv_feePayment = findViewById(R.id.cv_feePayment);
         tv_cs1 = findViewById(R.id.tv_cs1);
         tv_ct1 = findViewById(R.id.tv_ct1);
         tv_roll = findViewById(R.id.tv_roll);
@@ -414,6 +420,14 @@ public class StudentDashboard extends AppCompatActivity {
                             Log.e("iconsboard", "?>>>>" + object.getString("academic_result"));
 
                             try {
+                                payment_url = object.getString("payment_url");
+
+                            } catch (Exception r) {
+                                r.printStackTrace();
+                            }
+
+
+                            try {
                                 if (object.getString("academic_result").equals("1")) {
                                     StudentResult.setVisibility(View.VISIBLE);
                                 } else {
@@ -442,11 +456,16 @@ public class StudentDashboard extends AppCompatActivity {
                                 Log.e("iconsboard", "receipt_button=>" + e.getMessage());
 
                             }
+
+
+
                             try {
+
+
 
                                 if (object.getString("graph").equals("1")) {
                                     cv_chart.setVisibility(View.VISIBLE);
-
+                                    FeePayemtTrip = "Y";
                                     cv_chart.setOnClickListener(v -> {
                                         Intent intent = new Intent(StudentDashboard.this, ChartActivity.class);
                                         intent.putExtra("CLASSID", classid);
@@ -455,6 +474,7 @@ public class StudentDashboard extends AppCompatActivity {
                                         startActivity(intent);
                                     });
                                 } else {
+                                    FeePayemtTrip = "N";
                                     cv_chart.setVisibility(View.GONE);
                                 }
                             } catch (Exception e) {
@@ -465,8 +485,10 @@ public class StudentDashboard extends AppCompatActivity {
                             try {
                                 if (object.getString("certificate").equals("1")) {
                                     Cirtificate.setVisibility(View.VISIBLE);
+                                    FeePayemtTrip = "Y";
                                 } else {
                                     Cirtificate.setVisibility(View.INVISIBLE);
+                                    FeePayemtTrip = "N";
 
                                 }
 
@@ -479,14 +501,40 @@ public class StudentDashboard extends AppCompatActivity {
                             try {
                                 if (object.getString("healthActivity_certificate").equals("1")) {
                                     //   cv_healthActivity.setVisibility(View.VISIBLE);
+                                    FeePayemtTrip = "Y";
                                     getHealthActivity();
                                 } else {
                                     cv_healthActivity.setVisibility(View.INVISIBLE);
+                                    FeePayemtTrip = "N";
 
                                 }
                             } catch (Exception e) {
                                 e.getMessage();
                                 cv_healthActivity.setVisibility(View.INVISIBLE);
+                                Log.e("iconsboard", "healthActivity_certificate=>" + e.getMessage());
+
+                            }
+                            try {
+                                if (object.getString("online_fees_payment").equals("1")) {
+                                     cv_feePayment.setVisibility(View.VISIBLE);
+
+                                        cv_feePayment.setVisibility(View.VISIBLE);
+
+                                        cv_feePayment.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                navigateToWebView();
+                                            }
+                                        });
+
+
+                                } else {
+                                    cv_feePayment.setVisibility(View.GONE);
+
+                                }
+                            } catch (Exception e) {
+                                e.getMessage();
+                                cv_feePayment.setVisibility(View.GONE);
                                 Log.e("iconsboard", "healthActivity_certificate=>" + e.getMessage());
 
                             }
@@ -526,6 +574,105 @@ public class StudentDashboard extends AppCompatActivity {
         };
 
         requestQueue.add(request);
+    }
+
+    private void navigateToWebView() {
+        String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%";
+        String academic_yr, reg_id, username, username1, encryptedUsername = null, secretKey;
+        academic_yr = (SharedPrefManager.getInstance(this).getAcademicYear());
+        reg_id = (String.valueOf((SharedPrefManager.getInstance(this).getRegId())));
+
+        //ARNOLDS
+        if (name.equals("SACS")) {
+            Log.e("paymentView", "SACS>>");
+            username1 = (String.valueOf((SharedPrefManager.getInstance(this).getUserId())));
+            username = Uri.encode(username1, ALLOWED_URI_CHARS);
+            secretKey = "aceventura@services";
+            try {
+                encryptedUsername = Encryption.SHA1(username + secretKey);
+            } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+          /*  String url = dUrl + "index.php/admin/online_payment_apk/?reg_id=" + reg_id +
+                    "&academic_yr=" + academic_yr + "&user_id=" + username +
+                    "&encryptedUsername=" + encryptedUsername +
+                    "&short_name=" + name;*/
+            String url = payment_url + "?reg_id=" + reg_id +
+                    "&academic_yr=" + academic_yr + "&user_id=" + username +
+                    "&encryptedUsername=" + encryptedUsername +
+                    "&short_name=" + name;
+
+            Log.e("paymentView", "SACS>>" + url);
+
+
+            System.out.println("PAYMENT_URL => " + url);
+            Intent intent = new Intent(this, PaymentWebview.class);
+            intent.putExtra("paymentUrl", url);
+            intent.putExtra("academic_yr", academic_yr);
+            intent.putExtra("reg_id", reg_id);
+            this.startActivity(intent);
+        } else if (name.equals("SFSPUNE") || name.equals("SJSKW")) {
+
+            secretKey = "evolvu@sfs";
+
+            username = (String.valueOf((SharedPrefManager.getInstance(this).getUserId())));
+            try {
+                encryptedUsername = Encryption.SHA1(username + secretKey);
+            } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+
+            /*String url = dUrl + "index.php/Worldline/WL_online_payment_req_apk/?reg_id=" + reg_id +
+                    "&academic_yr=" + academic_yr + "&user_id=" + username +
+                    "&encryptedUsername=" + encryptedUsername +
+                    "&short_name=" + name;*/
+            String url = payment_url + "?reg_id=" + reg_id +
+                    "&academic_yr=" + academic_yr + "&user_id=" + username +
+                    "&encryptedUsername=" + encryptedUsername +
+                    "&short_name=" + name;
+
+            Log.e("paymentView", "SFSPUNE,SJSKW>>" + url);
+
+            System.out.println("PAYMENT_URL => " + url);
+            Intent intent = new Intent(this, PaymentWebview.class);
+            intent.putExtra("paymentUrl", url);
+            intent.putExtra("academic_yr", academic_yr);
+            intent.putExtra("reg_id", reg_id);
+            this.startActivity(intent);
+        } else {
+
+            //todo  sfsne and sfsnw school
+
+
+            secretKey = "evolvu@sfs";
+            username = (String.valueOf((SharedPrefManager.getInstance(this).getUserId())));
+            try {
+                encryptedUsername = Encryption.SHA1(username + secretKey);
+            } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+
+            String url = payment_url + "?reg_id=" + reg_id +
+                    "&academic_yr=" + academic_yr + "&user_id=" + username +
+                    "&encryptedUsername=" + encryptedUsername +
+                    "&short_name=" + name;
+
+            /*String url = dUrl + "index.php/Billdesk/BD_online_payment_req_apk/?reg_id=" + reg_id +
+                    "&academic_yr=" + academic_yr + "&user_id=" + username +
+                    "&encryptedUsername=" + encryptedUsername +
+                    "&short_name=" + name;*/
+
+            Log.e("paymentView", "sfsne and sfsnw>>" + url);
+            System.out.println("PAYMENT_URL => " + url);
+            Intent intent = new Intent(this, PaymentWebview.class);
+            intent.putExtra("paymentUrl", url);
+            intent.putExtra("academic_yr", academic_yr);
+            intent.putExtra("reg_id", reg_id);
+            this.startActivity(intent);
+        }
     }
 
 

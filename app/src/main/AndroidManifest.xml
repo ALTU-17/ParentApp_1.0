@@ -81,7 +81,8 @@
         <activity
             android:name=".Payment.PaymentWebview"
             android:label="Fee Payment"
-            tools:ignore="InnerclassSeparator" />
+            tools:ignore="InnerclassSeparator"
+            android:hardwareAccelerated="false" />
         <activity
             android:name=".SchoolNewsDetailPage"
             android:label="School News Details" />

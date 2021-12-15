@@ -5,4 +5,9 @@
             <certificates src="system" />
         </trust-anchors>
     </base-config>
+
+    <!--<domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">http://aceventura.in</domain>
+        <domain includeSubdomains="false">https://aceventura.in</domain>
+    </domain-config>-->
 </network-security-config>

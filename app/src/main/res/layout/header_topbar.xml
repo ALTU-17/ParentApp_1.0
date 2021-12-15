@@ -168,9 +168,10 @@
        android:id="@+id/tv_pay_errormsg"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="ASSSS"
+       android:text=""
        android:visibility="gone"
        android:gravity="center"
        android:textColor="@color/md_yellow_100"
     />
+
 </LinearLayout>

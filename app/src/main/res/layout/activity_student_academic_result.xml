@@ -37,34 +37,93 @@
     </LinearLayout>
 
 
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/llshowchart"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+    <LinearLayout
+        android:id="@+id/ll_main_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginTop="71dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/custom_card_rect_navigation"
         android:elevation="2dp"
-        android:padding="2dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="#ffffff"
-        app:cardCornerRadius="5dp"
+        android:gravity="end"
+        android:orientation="horizontal">
 
-        >
-        <ImageView
+        <LinearLayout
+            android:id="@+id/ll_CBSEsr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/card_button_result"
+            android:visibility="gone">
 
-            android:layout_width="30dp"
+            <TextView
+                android:id="@+id/ht_CBSE_9sr"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="CBSE Report Card"
+                android:textColor="@color/md_white_1000"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_resultsr"
+            android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:elevation="1dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/card_button_result"
+            android:gravity="end"
+            android:visibility="gone">
 
-            android:background="@drawable/ic_resultbar_chart" />
+            <TextView
+                android:id="@+id/tv_resultsr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="View Report Card"
+                android:textColor="@color/md_white_1000"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/llshowchart"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/custom_card_rect_navigation"
+            android:elevation="2dp"
+            android:padding="2dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="5dp"
+
+            >
+
+            <ImageView
+
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_resultbar_chart"
+
+                android:elevation="1dp" />
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/nodata4"

@@ -46,7 +46,8 @@ public class ResultShowReportCardActivity extends AppCompatActivity {
     Context context;
     Activity activity;
     DatabaseHelper mDatabaseHelper;
-    String name, newUrl, dUrl, pid;
+    String name, newUrl, dUrl, pid, class_name;
+    String resultUrl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class ResultShowReportCardActivity extends AppCompatActivity {
         student_id = getIntent().getStringExtra("student_id");
         // TODO: 12-10-2020 added
         class_id = getIntent().getStringExtra("class_id");
+        class_name = getIntent().getStringExtra("class_name");
         // TODO: 12-10-2020 added
         reg_id = (SharedPrefManager.getInstance(this).getRegId().toString());
         // TODO: 12-10-2020 added
@@ -174,10 +176,17 @@ public class ResultShowReportCardActivity extends AppCompatActivity {
             Log.e("bottomErrr", "wee" + e.getMessage());
         }
         ///
-
+      Log.e("classname","classnamed=?"+class_name);
+        if (class_name.equals("11")) {
+            resultUrl = dUrl + "index.php/HSC/show_reportcard_class11_cbseformat?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&acd_yr=" + SharedPrefManager.getInstance(getApplicationContext()).getAcademicYear().trim();
+            Log.e("classname","classnamedURL?"+resultUrl);
+        } else {
+            resultUrl = dUrl + "index.php/assessment/show_reportcard_class9_cbseformat?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&acd_yr=" + SharedPrefManager.getInstance(getApplicationContext()).getAcademicYear().trim();
+            Log.e("classname","classnamedURL?"+resultUrl);
+        }
+        Log.e("classname","classnamedURLFinal?"+resultUrl);
 
         // TODO: 17-12-2020 url for showing result webview only arnolds-->>>From DB
-        String resultUrl = dUrl + "index.php/assessment/show_reportcard_class9_cbseformat?student_id="+student_id+"&class_id="+class_id+"&login_type=P&acd_yr="+ SharedPrefManager.getInstance(getApplicationContext()).getAcademicYear().trim();
         Log.i("TAG", "resultUrl" + resultUrl);
         Log.w("TAGpo", "resultUrl" + resultUrl);
         Log.e("show_reportcard_class9", "resultUrl" + resultUrl);

@@ -182,7 +182,7 @@ public class ReceiptWebview extends AppCompatActivity {
             }
         }
         String receiptUrl = getIntent().getStringExtra("receiptUrl");
-        Log.i(TAG, "receiptUrl" + receiptUrl);
+        Log.i("RecUrl", "receiptUrl" + receiptUrl);
 
 
         if (receiptUrl.isEmpty() || receiptUrl.equals("null")) {

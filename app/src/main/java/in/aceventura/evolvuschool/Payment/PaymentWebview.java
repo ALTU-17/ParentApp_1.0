@@ -10,12 +10,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.net.http.SslError;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.CookieManager;
+import android.webkit.SslErrorHandler;
 import android.webkit.URLUtil;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -47,6 +51,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.net.ssl.SSLContext;
+
 import in.aceventura.evolvuschool.AboutUsActivity;
 import in.aceventura.evolvuschool.ParentDashboard;
 import in.aceventura.evolvuschool.ParentProfile;
@@ -69,15 +75,19 @@ public class PaymentWebview extends AppCompatActivity {
     String reg_id;
     String academic_yr;
     String paymentUrl;
+    String payment_url = "";
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
         setContentView(R.layout.activity_payemt_webview);
         getSupportActionBar().hide();
         context = this;
         activity = this;
+
         mDatabaseHelper = new DatabaseHelper(this);
         name = mDatabaseHelper.getName(1);
         newUrl = mDatabaseHelper.getURL(1);
@@ -95,6 +105,17 @@ public class PaymentWebview extends AppCompatActivity {
         paymentWebview = findViewById(R.id.paymentWebview);
         btn_Back = findViewById(R.id.btn_Back);
         btn_Receipt = findViewById(R.id.btn_Receipt);
+
+        try {
+            if (Build.VERSION.SDK_INT >= 19) {
+                paymentWebview.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+            } else {
+                paymentWebview.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+            }
+        } catch (Exception e) {
+
+        }
+
 
         show_icons_parentdashboard_apk();
 
@@ -335,6 +356,8 @@ public class PaymentWebview extends AppCompatActivity {
                         public void onPageFinished(WebView view, final String url) {
                             progDailog.dismiss();
                         }
+
+
                     });
 
                     // TODO: 08-09-2020
@@ -405,13 +428,15 @@ public class PaymentWebview extends AppCompatActivity {
             finish();
         });
 
+
         btn_Receipt.setOnClickListener(v -> {
             //only for sfs
             Intent i = new Intent(PaymentWebview.this, ReceiptWebview.class);
             //s
 
-            i.putExtra("receiptUrl", dUrl + "index.php/Worldline/WL_online_payment_receipts_apk?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
-
+            // i.putExtra("receiptUrl", dUrl + "index.php/Worldline/WL_online_payment_receipts_apk?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
+            i.putExtra("receiptUrl", payment_url + "?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
+            Log.e("", "");
 
             startActivity(i);
             finish();
@@ -450,6 +475,19 @@ public class PaymentWebview extends AppCompatActivity {
 
                                 e.getMessage();
                             }
+                            try {
+
+
+                                Log.e("iconsboard", "?>>>>" + object);
+                                payment_url = object.getString("receipt_url");
+
+
+                            } catch (Exception e) {
+                                e.getMessage();
+                                Log.e("iconsboard", "RespoinsideConditionmain=>" + e.getMessage());
+
+                                Log.e("show_academic_result", "erorro=>" + e.getMessage());
+                            }
 
                             try {
 
@@ -467,8 +505,8 @@ public class PaymentWebview extends AppCompatActivity {
                                             //only for sfs
                                             //
                                             Intent i = new Intent(PaymentWebview.this, ReceiptWebview.class);
-                                            Log.e("RecUrl", "Urfl==>" + dUrl + "index.php/Worldline/WL_online_payment_receipts_apk?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
-                                            i.putExtra("receiptUrl", dUrl + "index.php/Worldline/WL_online_payment_receipts_apk?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
+                                            Log.e("RecUrl", "Urfl==>" + payment_url + "?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
+                                            i.putExtra("receiptUrl", payment_url + "?reg_id=" + reg_id + "&academic_yr=" + academic_yr + "&short_name=" + name);
                                             startActivity(i);
                                             finish();
                                         }

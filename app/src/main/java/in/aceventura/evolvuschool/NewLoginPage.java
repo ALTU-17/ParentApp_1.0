@@ -18,6 +18,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 
@@ -278,6 +279,7 @@ public class NewLoginPage extends AppCompatActivity {
 
                     }
                 };
+
                 RequestHandler.getInstance(getApplicationContext()).addToRequestQueue(stringRequest1);
             }
         });

@@ -52,8 +52,8 @@ public class ResultWebViewActivity extends AppCompatActivity {
     Context context;
     Activity activity;
     DatabaseHelper mDatabaseHelper;
-    String name, newUrl, dUrl, pid;
-
+    String name, newUrl, dUrl, pid,class_name="";
+    String resultUrl="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +67,7 @@ public class ResultWebViewActivity extends AppCompatActivity {
         student_id = getIntent().getStringExtra("student_id");
         // TODO: 12-10-2020 added
         class_id = getIntent().getStringExtra("class_id");
+        class_name = getIntent().getStringExtra("class_name");
         // TODO: 12-10-2020 added
         reg_id = (SharedPrefManager.getInstance(this).getRegId().toString());
         // TODO: 12-10-2020 added
@@ -183,8 +184,19 @@ public class ResultWebViewActivity extends AppCompatActivity {
 
 
         // TODO: 17-12-2020 url for showing result webview only arnolds-->>>From DB
-        String resultUrl = dUrl + "index.php/assessment/show_report_card" +
-                "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
+
+        //
+        Log.e("classname","classnamed=?"+class_name);
+        if(class_name.equals("11") || class_name.equals("12")){
+            resultUrl = dUrl + "index.php/HSC/show_report_card" +
+                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
+            Log.e("classname","classnamedURL?"+resultUrl);
+        }else{
+            resultUrl = dUrl + "index.php/assessment/show_report_card" +
+                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
+            Log.e("classname","classnamedURL?"+resultUrl);
+        }
+        Log.e("classname","classnamedURLFinal?"+resultUrl);
         Log.i("TAG", "resultUrl" + resultUrl);
         Log.w("TAGpo", "resultUrl" + resultUrl);
 

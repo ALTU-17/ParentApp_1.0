@@ -18,6 +18,7 @@ repositories {
 
 
 android {
+
     compileSdkVersion 29
     defaultConfig {
         applicationId "in.aceventura.evolvuschool"
@@ -25,8 +26,8 @@ android {
         targetSdkVersion 29
 
         //change versionCode and versionName
-        versionCode 56
-        versionName "2.37"
+        versionCode 60
+        versionName "2.41"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -128,8 +129,6 @@ dependencies {
     implementation 'com.roughike:bottom-bar:2.3.1'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
-
-    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 
 }
 // ADD THIS AT THE BOTTOM

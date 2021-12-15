@@ -45,7 +45,9 @@ public class ExamViewHolder extends GroupViewHolder {
     LinearLayout ll_list_Proficiency_Certificate, ll_list_item_genre_arrow, ll_main_item, ll_Certificate;
     String nameitem;
     DatabaseHelper mDatabaseHelper;
+
     public String name;
+    public String termFinalId = "";
     String newUrl, dUrl;
     Context mContext1;
     Activity mActivity;
@@ -53,19 +55,25 @@ public class ExamViewHolder extends GroupViewHolder {
     String filename = "";
     DownloadManager dm;
     String Exam_Name_Term_Id;
+    String ExamID = "";
+    String class_name;
+    String resurl = "";
+    String Ids = "";
 
-    public ExamViewHolder(View itemView, String Exam_Name_Term_Id, String term_id1, String term_id2, Activity mActivity, Context mContext, String sid) {
+    public ExamViewHolder(View itemView, String class_name, String Exam_Name_Term_Id, String term_id1, String term_id2, Activity mActivity, Context mContext, String sid) {
         super(itemView);
         this.mContext1 = mContext;
         this.mActivity = mActivity;
         nameitem = name;
         this.sid = sid;
+        this.class_name = class_name;
         this.term_id1 = term_id1;
         this.term_id2 = term_id2;
         this.Exam_Name_Term_Id = Exam_Name_Term_Id;
         Log.e("ExamViewHolder", "VALUES>" + "TERM 1>" + term_id1);
         Log.e("ExamViewHolder", "VALUES>" + "TERM 2>" + term_id2);
         Log.e("ExamViewHolder", "VALUES>" + "Finam EXAM>" + Exam_Name_Term_Id);
+        Log.e("ExamViewHolder", "VALUES>" + "class_name>" + class_name);
 
         examTitle = itemView.findViewById(R.id.txtexamname);
         ll_list_Proficiency_Certificate = itemView.findViewById(R.id.ll_list_Proficiency_Certificate);
@@ -83,19 +91,9 @@ public class ExamViewHolder extends GroupViewHolder {
             newUrl = mDatabaseHelper.getURL(1);
             dUrl = mDatabaseHelper.getPURL(1);
         }
-
-        if (name.equalsIgnoreCase("Term 1")) {
+        Log.e("exholder", "name=" + name);
+        if (name.equalsIgnoreCase("Term 1") || name.equalsIgnoreCase("Term 2") || name.equalsIgnoreCase("Final exam")) {
             Log.e("exholder", "name=" + name);
-//            ll_Certificate.setVisibility(View.GONE);
-  //          ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-
-        } else if (name.equalsIgnoreCase("Term 2")) {
-    //        ll_Certificate.setVisibility(View.GONE);
-      //      ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-
-        } else if (name.equalsIgnoreCase("Final exam")) {
-        //    ll_Certificate.setVisibility(View.GONE);
-          //  ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
 
         } else {
             ll_list_Proficiency_Certificate.setVisibility(View.GONE);
@@ -112,13 +110,33 @@ public class ExamViewHolder extends GroupViewHolder {
             public void onClick(View view) {
                 Log.e("EXAMHOLDER", "VALUES>IDS>" + nameitem);
                 if (nameitem.equalsIgnoreCase("Term 1")) {
-                    getDownload_ProficiencyCer(term_id1);
-                } else if (nameitem.equalsIgnoreCase("Term 2")) {
-                    getDownload_ProficiencyCer(term_id2);
-                } else if (nameitem.equalsIgnoreCase("Final exam")) {
-                    getDownload_ProficiencyCer(Exam_Name_Term_Id);
-                } else {
+                    try {
+                        // getDownload_ProficiencyCer(term_id22);
 
+
+                        getDownload_ProficiencyCer(term_id1);
+                    } catch (Exception e) {
+
+                    }
+
+
+                } else if (nameitem.equalsIgnoreCase("Term 2")) {
+                    try {
+
+                        //  getDownload_ProficiencyCer(term_id22);
+                        getDownload_ProficiencyCer(term_id2);
+
+                    } catch (Exception e) {
+
+                    }
+                } else if (nameitem.equalsIgnoreCase("Final exam")) {
+                    try {
+
+                        getDownload_ProficiencyCer(Exam_Name_Term_Id);
+
+                        /// getDownload_ProficiencyCer(term_id22);
+                    } catch (Exception e) {
+                    }
                 }
 
 
@@ -129,18 +147,31 @@ public class ExamViewHolder extends GroupViewHolder {
 
     public void setExamTitle(String name) {
         Log.e("exholder", "name=" + name);
-        if (name.equalsIgnoreCase("Term 1")) {
+        if (name.equalsIgnoreCase("Term 1") || name.equalsIgnoreCase("Term 2") || name.equalsIgnoreCase("Final exam")) {
             //ll_Certificate.setVisibility(View.GONE);
-           // ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-            getDownload_Proficiency(term_id1);
-        } else if (name.equalsIgnoreCase("Term 2")) {
-            //ll_Certificate.setVisibility(View.GONE);
-            //ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-            getDownload_Proficiency(term_id2);
-        } else if (name.equalsIgnoreCase("Final exam")) {
-            //ll_Certificate.setVisibility(View.GONE);
-            //ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-            getDownload_Proficiency(Exam_Name_Term_Id);
+            // ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
+            try {
+
+                getDownload_Proficiency(term_id1);
+                Log.e("term", "ids0=" + term_id1);
+            } catch (Exception e) {
+
+            }
+            try {
+
+                getDownload_Proficiency(term_id2);
+                Log.e("term", "ids00=" + term_id2);
+            } catch (Exception e) {
+
+            }
+            try {
+                if (class_name.equalsIgnoreCase("9") || class_name.equalsIgnoreCase("11"))
+                getDownload_Proficiency(Exam_Name_Term_Id);
+                Log.e("term", "ids000=" + Exam_Name_Term_Id);
+
+            } catch (Exception e) {
+
+            }
         } else {
             ll_list_Proficiency_Certificate.setVisibility(View.GONE);
             ll_Certificate.setVisibility(View.VISIBLE);
@@ -180,18 +211,31 @@ public class ExamViewHolder extends GroupViewHolder {
     public void setITEM(Context context) {
 
 
-        if (nameitem.equalsIgnoreCase("Term 1")) {
-            getDownload_Proficiency(term_id1);
-           // ll_Certificate.setVisibility(View.GONE);
+        if (nameitem.equalsIgnoreCase("Term 1") || nameitem.equalsIgnoreCase("Term 2") || nameitem.equalsIgnoreCase("Final exam")) {
+            try {
+
+                getDownload_Proficiency(term_id1);
+
+            } catch (Exception e) {
+            }
+            try {
+
+                getDownload_Proficiency(term_id2);
+
+            } catch (Exception e) {
+            }
+            try {
+
+                if (class_name.equalsIgnoreCase("9") || class_name.equalsIgnoreCase("11"))
+                    getDownload_Proficiency(Exam_Name_Term_Id);
+
+
+            } catch (Exception e) {
+            }
+
+
+            // ll_Certificate.setVisibility(View.GONE);
             //ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-        } else if (nameitem.equalsIgnoreCase("Term 2")) {
-            //ll_Certificate.setVisibility(View.GONE);
-            //ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-            getDownload_Proficiency(term_id2);
-        } else if (nameitem.equalsIgnoreCase("Final exam")) {
-            //ll_Certificate.setVisibility(View.GONE);
-            //ll_list_Proficiency_Certificate.setVisibility(View.VISIBLE);
-            getDownload_Proficiency(Exam_Name_Term_Id);
         } else {
             ll_Certificate.setVisibility(View.VISIBLE);
             ll_list_Proficiency_Certificate.setVisibility(View.GONE);
@@ -221,7 +265,9 @@ public class ExamViewHolder extends GroupViewHolder {
 
     private void getDownload_ProficiencyCer(String term_id) {
         try {
-            if (mid_name.equals("")) {
+            Log.e("puelFile", "url->" + term_id);
+
+            /*if (mid_name.equals("")) {
                 filename = "Proficiency_Certificate_" + first_name + ".pdf".trim();
             } else {
                 filename = "Proficiency_Certificate_" + first_name + "_" + mid_name + ".pdf".trim();
@@ -231,15 +277,32 @@ public class ExamViewHolder extends GroupViewHolder {
                 filename = "Proficiency_Certificate_" + first_name + "_" + mid_name + ".pdf".trim();
             } else {
                 filename = "Proficiency_Certificate_" + first_name + "_" + mid_name + "_" + last_name + ".pdf".trim();
-            }
-            String url = dUrl + "index.php/assessment/download_proficiency_certificate?login_type=P&student_id=" + sid + "&term_id=" + term_id + "&type=" + type + "&academic_yr=" + SharedPrefManager.getInstance(mContext1).getAcademicYear().trim();
+            }*/
+            Log.e("puel009", "url->ddExamID>" + ExamID);
+            Log.e("puel009", "url->nameitem>" + nameitem);
+            Log.e("puel009", "url->class_name>" + class_name);
+            Log.e("puel009", "url->term_id>" + term_id);
+            if (class_name.equalsIgnoreCase("9") || class_name.equalsIgnoreCase("11")) {
 
-            Log.e("puel", "url->" + url);
+                filename = "Proficiency_Certificate_" + nameitem + "_" + first_name + ".pdf".trim();
+
+                resurl = dUrl + "index.php/assessment/download_proficiency_certificate?login_type=P&student_id=" + sid + "&term_id=" + ExamID + "&type=" + type + "&academic_yr=" + SharedPrefManager.getInstance(mContext1).getAcademicYear().trim();
+
+            } else {
+                filename = "Proficiency_Certificate_" + nameitem + "_" + first_name + ".pdf".trim();
+
+                resurl = dUrl + "index.php/assessment/download_proficiency_certificate?login_type=P&student_id=" + sid + "&term_id=" + term_id + "&type=" + type + "&academic_yr=" + SharedPrefManager.getInstance(mContext1).getAcademicYear().trim();
+
+            }
+
+
+            Log.e("puel", "url->" + resurl);
+            Log.e("puel", "filename->" + filename);
             try {
 
                 if (isReadStorageAllowed()) {
                     dm = (DownloadManager) mActivity.getSystemService(Context.DOWNLOAD_SERVICE);
-                    Uri uri = Uri.parse(url);
+                    Uri uri = Uri.parse(resurl);
                     System.out.println("NOTICEDOWNLOADURL - " + uri.toString());
                     DownloadManager.Request request = new DownloadManager.Request(uri);
                     //            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
@@ -289,7 +352,10 @@ public class ExamViewHolder extends GroupViewHolder {
 
     private void getDownload_Proficiency(String term_id) {
         try {
+            termFinalId = term_id;
+
             Log.e("Download_Proficiency ", "term_id>" + term_id);
+            Log.e("Download_Proficiency ", "termFinalId>" + termFinalId);
             String url = newUrl + "check_proficiency_data_exist_for_studentid";
             Log.e("Download_Proficiency", "MainUrl>" + url);
             RequestQueue requestQueue = Volley.newRequestQueue(mContext1);
@@ -306,7 +372,13 @@ public class ExamViewHolder extends GroupViewHolder {
                             first_name = objcet.getString("first_name");
                             mid_name = objcet.getString("mid_name");
                             last_name = objcet.getString("last_name");
-                            //   String term_id = objcet.getString("term_id");
+                            try {
+                                ExamID = objcet.getString("term_id");
+                                // getDownload_ProficiencyCer(term_id22);
+                            } catch (Exception e) {
+
+                            }
+
                             type = objcet.getString("type");
 
 
@@ -335,7 +407,18 @@ public class ExamViewHolder extends GroupViewHolder {
                     }
                     params.put("student_id", sid);///
                     params.put("short_name", name);
-                    params.put("term_id", term_id);
+
+                    params.put("term_id", termFinalId);
+                    try {
+                        Log.e("Download_Proficiency", "inside" + Exam_Name_Term_Id);
+
+                       // params.put("term_id", Exam_Name_Term_Id);
+
+                    } catch (Exception e) {
+
+                    }
+
+
                     Log.e("Download_Proficiency", "paramiteriii" + params);
                     return params;
                 }

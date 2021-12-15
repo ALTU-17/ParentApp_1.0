@@ -422,7 +422,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 edt_newPwd.requestFocus();
                 edt_newPwd.setError("Password must contain 8 to 20 characters,number and one special character i.e !@#$%");
             } else {
-                changePassword();
+                Log.e("Password", "ValuesAllDone" + password_new);
+
+
+                  changePassword();
             }
         });
     }
@@ -477,9 +480,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
     }
 
     public boolean validatePwd(final String pass) {
-        String PASSWORD_PATTERN;
-        PASSWORD_PATTERN = "((?=.*\\d)(?=.*[@#$%]).{8,20})";
-        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        Log.e("Password", "Values=?" + pass);
+        String PASSWORD_PATTERN = "[a-zA-Z0-9!@#&$%][^,_-]]";//(?=.*\d)(?=.*[@#$%]).{8,20}
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9!@#$%^&]{8,20}");
         Matcher matcher = pattern.matcher(pass);
         return matcher.matches();
     }
