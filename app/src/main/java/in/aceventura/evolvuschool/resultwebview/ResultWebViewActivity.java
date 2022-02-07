@@ -188,12 +188,17 @@ public class ResultWebViewActivity extends AppCompatActivity {
         //
         Log.e("classname","classnamed=?"+class_name);
         if(class_name.equals("11") || class_name.equals("12")){
+           // resultUrl = dUrl + "index.php/HSC/show_report_card" +
+           //         "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
             resultUrl = dUrl + "index.php/HSC/show_report_card" +
-                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
+                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr + "&short_name=" + name;
             Log.e("classname","classnamedURL?"+resultUrl);
         }else{
+           // resultUrl = dUrl + "index.php/assessment/show_report_card" +
+            //        "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
             resultUrl = dUrl + "index.php/assessment/show_report_card" +
-                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
+                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr + "&short_name=" + name;
+
             Log.e("classname","classnamedURL?"+resultUrl);
         }
         Log.e("classname","classnamedURLFinal?"+resultUrl);

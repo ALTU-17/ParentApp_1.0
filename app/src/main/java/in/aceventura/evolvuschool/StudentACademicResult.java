@@ -50,8 +50,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import in.aceventura.evolvuschool.Sqlite.DatabaseHelper;
+import in.aceventura.evolvuschool.Sqlite.StudentsDatabaseHelper;
 import in.aceventura.evolvuschool.adapters.ExamAdapter;
 import in.aceventura.evolvuschool.bottombar.MyCalendar;
 import in.aceventura.evolvuschool.models.Detail_result;
@@ -72,12 +74,15 @@ public class StudentACademicResult extends AppCompatActivity {
     LinearLayoutManager linearLayoutManager, linearLayoutManager1;
     ArrayList<AcademicResultPojo> resultPojoArrayList;
     String term_id1 = "", term_id2 = "", class_name = "", Exam_Name_Term_Id = "";
+    String  student_id, class_id, academic_yr,childName;
     String mCBSC = "";
     String CBSEFLAG = "";
     AcademicResultPojo vpojo;// ll_Blank.setVisibility(View.VISIBLE);
     String Sname;
+    String resultUrl="";
     CardView llshowchart;
     DatabaseHelper mDatabaseHelper;
+    StudentsDatabaseHelper mStudentDatabaseHelper;
     public String name;
     String newUrl, dUrl;
     ExamAdapter examAdapter;
@@ -130,13 +135,21 @@ public class StudentACademicResult extends AppCompatActivity {
         tb_main1 = findViewById(R.id.icd_tb_studentacademicresult);
         //  getDownload_Proficiency();
         //Top Bar
+        student_id=sid;
+        class_id=classid;
+        academic_yr = (SharedPrefManager.getInstance(this).getAcademicYear());
+       childName=(SharedPrefManager.getInstance(this).getChildName());
+       // mStudentDatabaseHelper= new StudentsDatabaseHelper(this);
+       // childName=mStudentDatabaseHelper.g(1);
+        Log.e("ChildName", "ChildName:" + childName);
+
         getResult();
         getReport_Card();
         //   show_icons_parentdashboard_apk();
         ll_result = findViewById(R.id.ll_resultsr);
         ll_CBSE = findViewById(R.id.ll_CBSEsr);
         tv_result = findViewById(R.id.tv_resultsr);
-        tv_result.setText("View Report Card");
+        tv_result.setText("Download Report Card");
 
         TextView school_title = tb_main1.findViewById(R.id.school_title);
         TextView ht_Teachernote = tb_main1.findViewById(R.id.ht_Teachernote);
@@ -238,14 +251,66 @@ public class StudentACademicResult extends AppCompatActivity {
         //examAdapter = new ExamAdapter(mActivity, class_name,mContext, mCBSC, Exam_Name_Term_Id, term_id1, term_id2, sid, exam_list);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(new LinearLayoutManager(StudentACademicResult.this));
+
+        if(class_name.equals("11") || class_name.equals("12")){
+            // resultUrl = dUrl + "index.php/HSC/show_report_card" +
+            //         "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
+            resultUrl = dUrl + "index.php/HSC/pdf_download" +
+                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr + "&short_name=" + name;
+            Log.e("classname","classnamedURL?"+resultUrl);
+        }else{
+            // resultUrl = dUrl + "index.php/assessment/show_report_card" +
+            //        "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr;
+            resultUrl = dUrl + "index.php/assessment/pdf_download" +
+                    "?student_id=" + student_id + "&class_id=" + class_id + "&login_type=P&" + "acd_yr=" + academic_yr + "&short_name=" + name ;
+
+            Log.e("classname","classnamedURL?"+resultUrl);
+        }
+
+
         tv_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(StudentACademicResult.this, ResultWebViewActivity.class);
-                i.putExtra("student_id", sid);// TODO: 09-02-2020 added
-                i.putExtra("class_id", classid);// TODO: 09-02-2020 added
-                i.putExtra("class_name", class_name);// TODO: 09-02-2020 added
-                startActivity(i);
+
+
+                Toast.makeText(getApplicationContext(), "Downloading the result...", Toast.LENGTH_SHORT).show();
+
+                Uri url = Uri.parse(resultUrl);
+                Log.e("classname","Finalvariable?"+resultUrl);
+                        //("https://sfs.evolvu.in/test/msfs_test/index.php/Assessment/pdf_download?student_id=8249&class_id=43&acd_yr=2021-2022");
+                Set<String> args = url.getQueryParameterNames();
+                // String fileName = url.getQueryParameter("student_id") + "_" + url.getQueryParameter("class_id") + "_" + url.getQueryParameter("acd_yr") + ".pdf";
+                String folder = "/Download/Evolvuschool/Parent/";
+                String StringFile = "/Evolvuschool/Parent/";
+                DownloadManager.Request request=new DownloadManager.Request(url);
+                request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE | DownloadManager.Request.NETWORK_WIFI);
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                request.setDescription("Downloading Result...");
+
+
+
+
+                try {
+                    request.setDestinationInExternalPublicDir(folder, "RC_"+childName+".pdf");//v 28 allow to create and it deprecated method
+
+                } catch (Exception e) {
+
+                    //v 28+
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, StringFile + "RC_"+childName+".pdf");//(Environment.DIRECTORY_PICTURES,"parag.jpeg")
+                }
+
+
+
+                //  request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, folder);
+                request.allowScanningByMediaScanner();
+
+                DownloadManager dm=(DownloadManager)getSystemService(DOWNLOAD_SERVICE);
+                dm.enqueue(request);
+                //Intent i = new Intent(StudentACademicResult.this, ResultWebViewActivity.class);
+                //i.putExtra("student_id", sid);// TODO: 09-02-2020 added
+                //i.putExtra("class_id", classid);// TODO: 09-02-2020 added
+               // i.putExtra("class_name", class_name);// TODO: 09-02-2020 added
+               // startActivity(i);
             }
         });
 
@@ -266,23 +331,11 @@ public class StudentACademicResult extends AppCompatActivity {
 
 
                     } else {
-                        try {
 
+
+                        try {
                             JSONObject object = new JSONObject(response);
                             Log.e("iconsboard", "?>>>>" + object.getString("academic_result"));
-                            try {
-                                if (object.getString("cbse_reportcard").equals("1")) {
-                                    //ll_CBSE.setVisibility(View.VISIBLE);
-                                    getResult();
-                                } else {
-                                    ll_CBSE.setVisibility(View.GONE);
-                                    ll_Blank.setVisibility(View.VISIBLE);
-                                }
-                            } catch (Exception e) {
-                                e.getMessage();
-                                ll_CBSE.setVisibility(View.GONE);
-                                ll_Blank.setVisibility(View.VISIBLE);
-                            }
 
 
                             try {
@@ -297,12 +350,38 @@ public class StudentACademicResult extends AppCompatActivity {
                                     });
                                 } else {
                                     llshowchart.setVisibility(View.GONE);
+                                    Log.e("Graphite", "?>>>>" + object.getString("graph"));
+
                                 }
+                                if (object.getString("cbse_reportcard").equals("1")) {
+                                    //ll_CBSE.setVisibility(View.VISIBLE);
+                                    getResult();
+                                } else {
+                                    ll_CBSE.setVisibility(View.GONE);
+                                    ll_Blank.setVisibility(View.VISIBLE);
+
+                                }
+
+
+
                             } catch (Exception e) {
                                 e.getMessage();
+                                ll_CBSE.setVisibility(View.GONE);
+                                ll_Blank.setVisibility(View.VISIBLE);
                                 Log.e("iconsboard", "receipt_button=>" + e.getMessage());
-                                llshowchart.setVisibility(View.GONE);
+                                 llshowchart.setVisibility(View.GONE);
+
                             }
+
+
+                         //   try {
+
+
+                           // } catch (Exception e) {
+                             //   e.getMessage();
+                              //  Log.e("iconsboard", "receipt_button=>" + e.getMessage());
+                              //  llshowchart.setVisibility(View.GONE);
+                           // }
 
                         } catch (Exception e) {
 
@@ -644,10 +723,10 @@ public class StudentACademicResult extends AppCompatActivity {
         if (item.getItemId() == R.id.downloadResult) {
 //            downloadResult();
             //open a webview here for viewing & downloading result
-            Intent i = new Intent(this, ResultWebViewActivity.class);
-            i.putExtra("student_id", sid);// TODO: 12-10-2020 added
-            i.putExtra("class_id", classid);// TODO: 12-10-2020 added
-            startActivity(i);
+           // Intent i = new Intent(this, ResultWebViewActivity.class);
+            //i.putExtra("student_id", sid);// TODO: 12-10-2020 added
+           // i.putExtra("class_id", classid);// TODO: 12-10-2020 added
+           // startActivity(i);
         } else {
             throw new IllegalStateException("Unexpected value: " + item.getItemId());
         }

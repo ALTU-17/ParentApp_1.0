@@ -19,15 +19,15 @@ repositories {
 
 android {
 
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "in.aceventura.evolvuschool"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
 
         //change versionCode and versionName
-        versionCode 60
-        versionName "2.41"
+        versionCode 61
+        versionName "2.42"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
