@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="in.aceventura.evolvuschool">
+    package="in.aceventura.evolvuschool" >
 
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -33,8 +33,11 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:replace="android:label"
-        tools:targetApi="n">
-        <activity android:name=".ChartActivity"></activity>
+        tools:targetApi="n" >
+        <activity
+            android:name=".ParentConect"
+            android:exported="false" />
+        <activity android:name=".ChartActivity" />
         <activity
             android:name=".NavigationDrawerActivity"
             android:theme="@style/Theme.Transparent" />
@@ -80,9 +83,9 @@
             android:label="Change Password" />
         <activity
             android:name=".Payment.PaymentWebview"
+            android:hardwareAccelerated="false"
             android:label="Fee Payment"
-            tools:ignore="InnerclassSeparator"
-            android:hardwareAccelerated="false" />
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".SchoolNewsDetailPage"
             android:label="School News Details" />
@@ -95,7 +98,7 @@
         <activity
             android:name=".NewLoginPage"
             android:theme="@style/SplashTheme"
-            android:windowSoftInputMode="adjustResize|stateHidden">
+            android:windowSoftInputMode="adjustResize|stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -176,7 +179,7 @@
             </intent-filter>
         </service>
         -->
-        <service android:name=".firebase.FirebaseMessageReceiver">
+        <service android:name=".firebase.FirebaseMessageReceiver" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -186,7 +189,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="in.aceventura.evolvuschool.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

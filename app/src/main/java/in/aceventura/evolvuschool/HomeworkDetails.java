@@ -378,7 +378,7 @@ public class HomeworkDetails extends AppCompatActivity implements View.OnClickLi
                         System.out.println("HOMEWORKDOWNLOADURL - " + uri.toString());
                         DownloadManager.Request request = new DownloadManager.Request(uri);
 //                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
-//                  request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
+//                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
 //                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
 

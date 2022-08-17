@@ -95,13 +95,13 @@ public class Config {
 
 
     //TODO:  Aceventura Server DEMO --->
-    //public static final String NEW_LOGIN = "http://aceventura.in/demo/evolvuUserService/";
+    public static final String NEW_LOGIN = "http://aceventura.in/demo/evolvuUserService/";
 
 
     // public static final String NEW_LOGIN = "http://aceventura.in/demo/evolvuUserService/validate_user\n";
 
     //TODO:  Live Server URL-->
-    public static final String NEW_LOGIN = "http://aceventura.in/evolvuUserService/";
+  //  public static final String NEW_LOGIN = "http://aceventura.in/evolvuUserService/";
 
 
     // public static final String NEW_LOGIN = "http://aceventura.in/evolvuUserService/validate_user\n";

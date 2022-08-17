@@ -138,7 +138,7 @@ public class StudentACademicResult extends AppCompatActivity {
         student_id=sid;
         class_id=classid;
         academic_yr = (SharedPrefManager.getInstance(this).getAcademicYear());
-       childName=(SharedPrefManager.getInstance(this).getChildName());
+        childName=(SharedPrefManager.getInstance(this).getChildName());
        // mStudentDatabaseHelper= new StudentsDatabaseHelper(this);
        // childName=mStudentDatabaseHelper.g(1);
         Log.e("ChildName", "ChildName:" + childName);
@@ -149,7 +149,7 @@ public class StudentACademicResult extends AppCompatActivity {
         ll_result = findViewById(R.id.ll_resultsr);
         ll_CBSE = findViewById(R.id.ll_CBSEsr);
         tv_result = findViewById(R.id.tv_resultsr);
-        tv_result.setText("Download Report Card");
+      //  tv_result.setText("Download Report Card");
 
         TextView school_title = tb_main1.findViewById(R.id.school_title);
         TextView ht_Teachernote = tb_main1.findViewById(R.id.ht_Teachernote);
@@ -494,7 +494,7 @@ public class StudentACademicResult extends AppCompatActivity {
         final String academic_yr = (SharedPrefManager.getInstance(StudentACademicResult.this).getAcademicYear());
         exam_list = new ArrayList<>();
         progressBar.setVisibility(View.VISIBLE);
-        Log.e("AcadamicResult", "URL>>" + newUrl + "student_marks");
+        Log.e("studentMark", "URL>>" + newUrl + "student_marks");
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, newUrl + "student_marks",
                 response -> {
